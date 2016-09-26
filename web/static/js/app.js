@@ -19,3 +19,31 @@ import "phoenix_html"
 // paths "./socket" or full ones "web/static/js/socket".
 
 // import socket from "./socket"
+
+/**
+ * Spooky scary ES6
+ * (demo)
+ */
+class Kees {
+  static kaas() {
+    return true;
+  }
+}
+let k = z => `jan ${z}`,
+    l = () => 'piet';
+const p = (y = 'kaas') => `text: ${y}`
+console.log(k);
+console.log(k('kees'));
+console.log(l);
+console.log(l());
+console.log(p);
+console.log(p());
+console.log(p('kees'));
+console.log(Kees.kaas());
+let logAll = (toLog) => {
+  let arr = toLog.split('');
+  for (let i = 0; i < arr.length; i++) {
+    console.log(arr[i]);
+  }
+}
+logAll('I love ES6!');
