@@ -1,0 +1,1 @@
+<h1>Showing status from user <%= @username %> with status ID <%= @id %></h1>

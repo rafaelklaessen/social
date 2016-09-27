@@ -2,7 +2,11 @@ exports.config = {
   // See http://brunch.io/#documentation for docs.
   files: {
     javascripts: {
-      joinTo: "js/app.js"
+      joinTo: {
+        "js/app.js": [/^web\/static\/js\//, /(node_modules)/, "!web/static/js/home.js", "!web/static/js/platform.js"],
+        "js/home.js": "web/static/js/home.js",
+        "js/platform.js": "web/static/js/platform.js"
+      }
 
       // To use a separate vendor.js bundle, specify two files path
       // http://brunch.io/docs/config#-files-
@@ -20,7 +24,11 @@ exports.config = {
       // }
     },
     stylesheets: {
-      joinTo: "css/app.css",
+      joinTo: {
+        "css/app.css": [/^web\/static\/css\//, "!web/static/css/home.scss", "!web/static/css/platform.scss"],
+        "css/home.css": "web/static/css/home.scss",
+        "css/platform.css": "web/static/css/platform.scss"
+      },
       order: {
         after: ["web/static/css/app.scss"] // concat app.scss last
       }

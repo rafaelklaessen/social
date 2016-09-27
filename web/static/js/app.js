@@ -46,4 +46,5 @@ let logAll = (toLog) => {
     console.log(arr[i]);
   }
 }
+console.log(logAll);
 logAll('I love ES6!');
