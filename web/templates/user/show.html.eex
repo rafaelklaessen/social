@@ -1,1 +1,2 @@
 <h1>User: <%= @username %></h1>
+<%= @data %>

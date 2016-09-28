@@ -1,6 +1,8 @@
 defmodule Social.UserController do
   use Social.Web, :controller
 
+  alias Social.User
+
   plug :put_profile_layout, "user.html"
 
   def index(conn, _params) do
@@ -14,16 +16,18 @@ defmodule Social.UserController do
   end
 
   def new(conn, _params) do
+    changeset = User.changeset(%User{})
     conn
     |> assign(:page_title, "New user")
+    |> assign(:changeset, changeset)
     |> render("new.html")
   end
 
   def show(conn, %{"id" => username}) do
-    query = from u in User,
-            where: u.username == username
-            select: *
-    data = Repo.get!(query)
+    #query = from u in User,
+    #        where: u.username == ^username,
+    #        select: u.theme_color
+    data = Repo.all(User)
     conn
     |> assign(:page_title, "Lorem (#{username}) | Social")
     |> assign(:username, username)
