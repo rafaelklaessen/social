@@ -1,0 +1,102 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= label f, :username, class: "control-label" %>
+    <%= text_input f, :username, class: "form-control" %>
+    <%= error_tag f, :username %>
+  </div>
+
+
+  <div class="form-group">
+    <%= label f, :name, class: "control-label" %>
+    <%= text_input f, :name, class: "form-control" %>
+    <%= error_tag f, :name %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :bio, class: "control-label" %>
+    <%= text_input f, :bio, class: "form-control" %>
+    <%= error_tag f, :bio %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :email, class: "control-label" %>
+    <%= text_input f, :email, class: "form-control" %>
+    <%= error_tag f, :email %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :location, class: "control-label" %>
+    <%= text_input f, :location, class: "form-control" %>
+    <%= error_tag f, :location %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :website, class: "control-label" %>
+    <%= text_input f, :website, class: "form-control" %>
+    <%= error_tag f, :website %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :birthday, class: "control-label" %>
+    <%= text_input f, :birthday, class: "form-control" %>
+    <%= error_tag f, :birthday %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :profile_picture, class: "control-label" %>
+    <%= text_input f, :profile_picture, class: "form-control" %>
+    <%= error_tag f, :profile_picture %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :banner, class: "control-label" %>
+    <%= text_input f, :banner, class: "form-control" %>
+    <%= error_tag f, :banner %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :theme_color, class: "control-label" %>
+    <%= text_input f, :theme_color, class: "form-control" %>
+    <%= error_tag f, :theme_color %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :settings, class: "control-label" %>
+    <%= text_input f, :settings, class: "form-control" %>
+    <%= error_tag f, :settings %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :following, class: "control-label" %>
+    <%= text_input f, :following, class: "form-control" %>
+    <%= error_tag f, :following %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :followers, class: "control-label" %>
+    <%= text_input f, :followers, class: "form-control" %>
+    <%= error_tag f, :followers %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :likes, class: "control-label" %>
+    <%= text_input f, :likes, class: "form-control" %>
+    <%= error_tag f, :likes %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :lists, class: "control-label" %>
+    <%= text_input f, :lists, class: "form-control" %>
+    <%= error_tag f, :lists %>
+  </div>
+
+  <div class="form-group">
+    <%= submit "Submit", class: "btn btn-primary" %>
+  </div>
+<% end %>

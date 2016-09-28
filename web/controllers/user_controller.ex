@@ -10,24 +10,30 @@ defmodule Social.UserController do
   end
 
   def edit(conn, %{"id" => username}) do
+    user = Repo.get!(User, username)
+    changeset = User.changeset(user)
     conn
     |> assign(:page_title, "Edit user #{username}")
+    |> assign(:changeset, changeset)
     |> render("edit.html")
   end
 
   def new(conn, _params) do
     changeset = User.changeset(%User{})
     conn
+    |> put_layout("app.html")
     |> assign(:page_title, "New user")
     |> assign(:changeset, changeset)
     |> render("new.html")
   end
 
   def show(conn, %{"id" => username}) do
-    #query = from u in User,
-    #        where: u.username == ^username,
-    #        select: u.theme_color
-    data = Repo.all(User)
+    query = from u in User,
+            where: u.username == ^username,
+            select: %{:name => u.name, :bio => u.bio, :location => u.location, :website => u.website, :birthday => u.birthday, :profile_picture => u.profile_picture, :banner => u.banner, :theme_color => u.theme_color, :settings => u.settings, :following => u.following, :followers => u.followers, :likes => u.likes, :lists => u.lists, :created_at => u.inserted_at}
+    data = Repo.all(query)
+    # The map is being put in a list, so get it out of the list
+    data = hd data
     conn
     |> assign(:page_title, "Lorem (#{username}) | Social")
     |> assign(:username, username)
@@ -35,19 +41,45 @@ defmodule Social.UserController do
     |> render("show.html")
   end
 
-  def create(conn, _params) do
-    # Create user in database
-    redirect conn, to: "/"
+  def create(conn, %{"user" => user_params}) do
+    changeset = User.changeset(%User{}, user_params)
+
+    case Repo.insert(changeset) do
+      {:ok, _user} ->
+        conn
+        |> put_flash(:info, "User created successfully.")
+        |> assign(:page_title, "Yo")
+        |> redirect(to: user_path(conn, :index))
+      {:error, changeset} ->
+        render(conn, "new.html", changeset: changeset, page_title: "kill", username: "kaas")
+    end
   end
 
-  def update(conn, _params) do
-    # Update user in database
-    redirect conn, to: "/"
+  def update(conn, %{"id" => id, "user" => user_params}) do
+    user = Repo.get!(User, id)
+    changeset = User.changeset(user, user_params)
+
+    case Repo.update(changeset) do
+      {:ok, user} ->
+        conn
+        |> put_flash(:info, "User updated successfully.")
+        |> redirect(to: user_path(conn, :show, user))
+      {:error, changeset} ->
+        render(conn, "edit.html", user: user, changeset: changeset, page_title: "kees")
+    end
   end
 
-  def delete(conn, _params) do
-    # Delete user from database
-    redirect conn, to: "/"
+  def delete(conn, %{"id" => id}) do
+    user = Repo.get!(User, id)
+
+    # Here we use delete! (with a bang) because we expect
+    # it to always work (and if it does not, it will raise).
+    Repo.delete!(user)
+
+    conn
+    |> put_flash(:info, "User deleted successfully.")
+    |> assign(:page_title, "kees")
+    |> redirect(to: user_path(conn, :index))
   end
 
   def show_with_replies(conn, %{"id" => username}) do

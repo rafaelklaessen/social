@@ -1,2 +1,4 @@
 <h1>User: <%= @username %></h1>
-<%= @data %>
+<%= for key <- Map.keys(@data) do %>
+  <p><span class="name"><%= key %>: </span><span class="content"><%= @data[key] %></span></p>
+<% end %>
