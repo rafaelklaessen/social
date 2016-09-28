@@ -1,0 +1,1 @@
+<h1>Tweets and replies by user: <%= @username %></h1>

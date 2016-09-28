@@ -1,0 +1,1 @@
+<h1>People <%= @username %> follows</h1>

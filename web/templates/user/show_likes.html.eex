@@ -1,0 +1,1 @@
+<h1>Likes by user: <%= @username %></h1>

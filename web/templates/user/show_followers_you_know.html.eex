@@ -1,0 +1,1 @@
+<h1>People you follow, following <%= @username %></h1>

@@ -26,14 +26,20 @@ defmodule Social.Router do
     pipe_through :browser
 
     resources "/", UserController
+    get "/:id/with_replies", UserController, :show_with_replies
+    get "/:id/media", UserController, :show_media
+    get "/:id/following", UserController, :show_following
+    get "/:id/followers", UserController, :show_followers
+    get "/:id/likes", UserController, :show_likes
+    get "/:id/followers_you_know", UserController,:show_followers_you_know
   end
 
   # List
-  scope "/users", Social do
+  scope "/users/:username", Social do
     pipe_through :browser
 
-    resources "/:username/lists", ListController
-    get "/:username/:list_name/", ListController, :redirect_list
+    resources "/lists", ListController
+    get "/:list_name/", ListController, :redirect_list
   end
 
   # Status
@@ -67,7 +73,7 @@ defmodule Social.Router do
     get "/blocked", SettingsController, :blocked
     get "/applications", SettingsController, :applications
     get "/widgets", SettingsController, :widgets
-    get "/your_social_data", SettingsController, :your_twitter_data
+    get "/your_social_data", SettingsController, :your_social_data
     get "/accessibility", SettingsController, :accessibility
   end
 
