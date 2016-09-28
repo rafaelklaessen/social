@@ -10,6 +10,7 @@ defmodule Social.User do
     field :birthday, :string
     field :profile_picture, :string
     field :banner, :string
+    field :theme_color, :string
     field :settings, :string
     field :following, :string
     field :followers, :string
@@ -24,7 +25,7 @@ defmodule Social.User do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:username, :name, :bio, :location, :website, :birthday, :profile_picture, :banner, :settings, :following, :followers, :likes, :lists])
-    |> validate_required([:username, :name, :bio, :location, :website, :birthday, :profile_picture, :banner, :settings, :following, :followers, :likes, :lists])
+    |> cast(params, [:username, :name, :bio, :location, :website, :birthday, :profile_picture, :banner, :theme_color, :settings, :following, :followers, :likes, :lists])
+    |> validate_required([:username, :name, :bio, :location, :website, :birthday, :profile_picture, :banner, :theme_color, :settings, :following, :followers, :likes, :lists])
   end
 end

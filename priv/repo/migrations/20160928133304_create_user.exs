@@ -11,6 +11,7 @@ defmodule Social.Repo.Migrations.CreateUser do
       add :birthday, :string
       add :profile_picture, :string
       add :banner, :string
+      add :theme_color, :string
       add :settings, :string
       add :following, :string
       add :followers, :string

@@ -20,9 +20,14 @@ defmodule Social.UserController do
   end
 
   def show(conn, %{"id" => username}) do
+    query = from u in User,
+            where: u.username == username
+            select: *
+    data = Repo.get!(query)
     conn
     |> assign(:page_title, "Lorem (#{username}) | Social")
     |> assign(:username, username)
+    |> assign(:data, data)
     |> render("show.html")
   end
 
