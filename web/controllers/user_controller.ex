@@ -30,7 +30,7 @@ defmodule Social.UserController do
   def show(conn, %{"id" => username}) do
     query = from u in User,
             where: u.username == ^username,
-            select: %{:name => u.name, :bio => u.bio, :location => u.location, :website => u.website, :birthday => u.birthday, :profile_picture => u.profile_picture, :banner => u.banner, :theme_color => u.theme_color, :settings => u.settings, :following => u.following, :followers => u.followers, :likes => u.likes, :lists => u.lists, :created_at => u.inserted_at}
+            select: %{:name => u.name, :password => u.password, :bio => u.bio, :location => u.location, :website => u.website, :birthday => u.birthday, :profile_picture => u.profile_picture, :banner => u.banner, :theme_color => u.theme_color, :settings => u.settings, :following => u.following, :followers => u.followers, :likes => u.likes, :lists => u.lists, :created_at => u.inserted_at}
     data = Repo.all(query)
     # The map is being put in a list, so get it out of the list
     data = hd data

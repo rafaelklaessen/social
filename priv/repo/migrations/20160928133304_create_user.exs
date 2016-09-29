@@ -5,6 +5,8 @@ defmodule Social.Repo.Migrations.CreateUser do
     create table(:users) do
       add :username, :string
       add :name, :string
+      add :password, :string
+      add :email, :string
       add :bio, :string
       add :location, :string
       add :website, :string
@@ -20,6 +22,9 @@ defmodule Social.Repo.Migrations.CreateUser do
 
       timestamps()
     end
+
+    create unique_index(:users, [:username])
+    create unique_index(:users, [:email])
 
   end
 end

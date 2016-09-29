@@ -2,8 +2,10 @@ defmodule Social.User do
   use Social.Web, :model
 
   schema "users" do
-    field :username, :string
+    field :username, :string, unique: true
     field :name, :string
+    field :password, :string
+    field :email, :string, unique: true
     field :bio, :string
     field :location, :string
     field :website, :string
@@ -21,11 +23,19 @@ defmodule Social.User do
   end
 
   @doc """
-  Builds a changeset based on the `struct` and `params`.
+  Creates a changeset based on the `model` and `params`.
+
+  If no params are provided, an invalid changeset is returned
+  with no validation performed.
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:username, :name, :bio, :location, :website, :birthday, :profile_picture, :banner, :theme_color, :settings, :following, :followers, :likes, :lists])
-    |> validate_required([:username, :name, :bio, :location, :website, :birthday, :profile_picture, :banner, :theme_color, :settings, :following, :followers, :likes, :lists])
+    |> cast(params, [:username, :name, :password, :email, :bio, :location, :website, :birthday, :profile_picture, :banner, :theme_color, :settings, :following, :followers, :likes, :lists])
+    |> validate_required([:username, :name, :password, :email])
+    |> validate_format(:email, ~r/@/)
+    |> validate_length(:password, min: 5)
+    |> unique_constraint(:username, name: :users_username_index)
+    |> unique_constraint(:email, name: :users_email_index)
   end
+
 end
