@@ -10,12 +10,26 @@ defmodule Social.UserController do
   end
 
   def edit(conn, %{"id" => username}) do
-    user = Repo.get!(User, username)
-    changeset = User.changeset(user)
-    conn
-    |> assign(:page_title, "Edit user #{username}")
-    |> assign(:changeset, changeset)
-    |> render("edit.html")
+    query = from u in User,
+            where: u.username == ^username,
+            select: u.id
+    user_id = Repo.all(query)
+    if Enum.count(user_id) == 0 do
+      conn
+      |> put_layout(false)
+      |> put_status(:not_found)
+      |> render(Social.ErrorView, "404.html")
+    else
+      user_id = hd user_id
+      user = Repo.get!(User, user_id)
+      changeset = User.changeset(user)
+      conn
+      |> assign(:page_title, "Edit user #{username}")
+      |> assign(:username, username)
+      |> assign(:changeset, changeset)
+      |> assign(:user, user)
+      |> render("edit.html")
+    end
   end
 
   def new(conn, _params) do
@@ -65,77 +79,166 @@ defmodule Social.UserController do
     end
   end
 
-  def update(conn, %{"id" => id, "user" => user_params}) do
-    user = Repo.get!(User, id)
-    changeset = User.changeset(user, user_params)
+  def update(conn, %{"id" => username, "user" => user_params}) do
+    query = from u in User,
+            where: u.username == ^username,
+            select: u.id
+    user_id = Repo.all(query)
+    if Enum.count(user_id) == 0 do
+      conn
+      |> put_layout(false)
+      |> put_status(:not_found)
+      |> render(Social.ErrorView, "404.html")
+    else
+      user_id = hd user_id
+      user = Repo.get!(User, user_id)
+      changeset = User.changeset(user, user_params)
 
-    case Repo.update(changeset) do
-      {:ok, user} ->
-        conn
-        |> put_flash(:info, "User updated successfully.")
-        |> redirect(to: user_path(conn, :show, user))
-      {:error, changeset} ->
-        conn
-        |> put_layout("app.html")
-        |> assign(:page_title, "New user")
-        |> assign(:changeset, changeset)
-        |> render("edit.html")
+      case Repo.update(changeset) do
+        {:ok, user} ->
+          conn
+          |> put_flash(:info, "User updated successfully.")
+          |> redirect(to: user_path(conn, :show, username))
+        {:error, changeset} ->
+          conn
+          |> put_layout("app.html")
+          |> assign(:page_title, "New user")
+          |> assign(:changeset, changeset)
+          |> assign(:username, username)
+          |> render("edit.html")
+      end
     end
   end
 
-  def delete(conn, %{"id" => id}) do
-    user = Repo.get!(User, id)
+  def delete(conn, %{"id" => username}) do
+    query = from u in User,
+            where: u.username == ^username,
+            select: u.id
+    user_id = Repo.all(query)
+    if Enum.count(user_id) == 0 do
+      conn
+      |> put_layout(false)
+      |> put_status(:not_found)
+      |> render(Social.ErrorView, "404.html")
+    else
+      user = Repo.get!(User, user_id)
 
-    # Here we use delete! (with a bang) because we expect
-    # it to always work (and if it does not, it will raise).
-    Repo.delete!(user)
+      # Here we use delete! (with a bang) because we expect
+      # it to always work (and if it does not, it will raise).
+      Repo.delete!(user)
 
-    conn
-    |> put_flash(:info, "User deleted successfully.")
-    |> assign(:page_title, "kees")
-    |> redirect(to: user_path(conn, :index))
+      conn
+      |> put_flash(:info, "User deleted successfully.")
+      |> redirect(to: "/")
+    end
   end
 
   def show_with_replies(conn, %{"id" => username}) do
-    conn
-    |> assign(:page_title, "Tweets with replies by Lorem (#{username}) | Social")
-    |> assign(:username, username)
-    |> render("show_with_replies.html")
+    query = from u in User,
+            where: u.username == ^username,
+            select: u.name
+    name = Repo.all(query)
+    if Enum.count(name) == 0 do
+      conn
+      |> put_layout(false)
+      |> put_status(:not_found)
+      |> render(Social.ErrorView, "404.html")
+    else
+      conn
+      |> assign(:page_title, "Tweets with replies by #{name} (#{username}) | Social")
+      |> assign(:username, username)
+      |> render("show_with_replies.html")
+    end
   end
 
   def show_media(conn, %{"id" => username}) do
-    conn
-    |> assign(:page_title, "Media Tweets by Lorem (#{username}) | Social")
-    |> assign(:username, username)
-    |> render("show_media.html")
+    query = from u in User,
+            where: u.username == ^username,
+            select: u.name
+    name = Repo.all(query)
+    if Enum.count(name) == 0 do
+      conn
+      |> put_layout(false)
+      |> put_status(:not_found)
+      |> render(Social.ErrorView, "404.html")
+    else
+      conn
+      |> assign(:page_title, "Media Tweets by #{name} (#{username}) | Social")
+      |> assign(:username, username)
+      |> render("show_media.html")
+    end
   end
 
   def show_following(conn, %{"id" => username}) do
-    conn
-    |> assign(:page_title, "People followed by Lorem (#{username}) | Social")
-    |> assign(:username, username)
-    |> render("show_following.html")
+    query = from u in User,
+            where: u.username == ^username,
+            select: u.name
+    name = Repo.all(query)
+    if Enum.count(name) == 0 do
+      conn
+      |> put_layout(false)
+      |> put_status(:not_found)
+      |> render(Social.ErrorView, "404.html")
+    else
+      conn
+      |> assign(:page_title, "People followed by #{name} (#{username}) | Social")
+      |> assign(:username, username)
+      |> render("show_following.html")
+    end
   end
 
   def show_followers(conn, %{"id" => username}) do
-    conn
-    |> assign(:page_title, "People following Lorem (#{username}) | Social")
-    |> assign(:username, username)
-    |> render("show_followers.html")
+    query = from u in User,
+            where: u.username == ^username,
+            select: u.name
+    name = Repo.all(query)
+    if Enum.count(name) == 0 do
+      conn
+      |> put_layout(false)
+      |> put_status(:not_found)
+      |> render(Social.ErrorView, "404.html")
+    else
+      conn
+      |> assign(:page_title, "People following #{name} (#{username}) | Social")
+      |> assign(:username, username)
+      |> render("show_followers.html")
+    end
   end
 
   def show_likes(conn, %{"id" => username}) do
-    conn
-    |> assign(:page_title, "Tweets liked by Lorem (#{username}) | Social")
-    |> assign(:username, username)
-    |> render("show_likes.html")
+    query = from u in User,
+            where: u.username == ^username,
+            select: u.name
+    name = Repo.all(query)
+    if Enum.count(name) == 0 do
+      conn
+      |> put_layout(false)
+      |> put_status(:not_found)
+      |> render(Social.ErrorView, "404.html")
+    else
+      conn
+      |> assign(:page_title, "Tweets liked by #{name} (#{username}) | Social")
+      |> assign(:username, username)
+      |> render("show_likes.html")
+    end
   end
 
   def show_followers_you_know(conn, %{"id" => username}) do
-    conn
-    |> assign(:page_title, "People you follow, following Lorem (#{username}) | Social")
-    |> assign(:username, username)
-    |> render("show_followers_you_know.html")
+    query = from u in User,
+            where: u.username == ^username,
+            select: u.name
+    name = Repo.all(query)
+    if Enum.count(name) == 0 do
+      conn
+      |> put_layout(false)
+      |> put_status(:not_found)
+      |> render(Social.ErrorView, "404.html")
+    else
+      conn
+      |> assign(:page_title, "People you follow, following #{name} (#{username}) | Social")
+      |> assign(:username, username)
+      |> render("show_followers_you_know.html")
+    end
   end
 
   defp put_profile_layout(conn, layout_file) do
