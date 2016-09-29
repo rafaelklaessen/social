@@ -32,13 +32,20 @@ defmodule Social.UserController do
             where: u.username == ^username,
             select: %{:name => u.name, :password => u.password, :bio => u.bio, :location => u.location, :website => u.website, :birthday => u.birthday, :profile_picture => u.profile_picture, :banner => u.banner, :theme_color => u.theme_color, :settings => u.settings, :following => u.following, :followers => u.followers, :likes => u.likes, :lists => u.lists, :created_at => u.inserted_at}
     data = Repo.all(query)
-    # The map is being put in a list, so get it out of the list
-    data = hd data
-    conn
-    |> assign(:page_title, "Lorem (#{username}) | Social")
-    |> assign(:username, username)
-    |> assign(:data, data)
-    |> render("show.html")
+    if Enum.count(data) == 0 do
+      conn
+      |> put_layout(false)
+      |> put_status(:not_found)
+      |> render(Social.ErrorView, "404.html")
+    else
+      # The map is being put in a list, so get it out of the list
+      data = hd data
+      conn
+      |> assign(:page_title, "#{data[:name]} (#{username}) | Social")
+      |> assign(:username, username)
+      |> assign(:data, data)
+      |> render("show.html")
+    end
   end
 
   def create(conn, %{"user" => user_params}) do
@@ -48,10 +55,13 @@ defmodule Social.UserController do
       {:ok, _user} ->
         conn
         |> put_flash(:info, "User created successfully.")
-        |> assign(:page_title, "Yo")
         |> redirect(to: user_path(conn, :index))
       {:error, changeset} ->
-        render(conn, "new.html", changeset: changeset, page_title: "kill", username: "kaas")
+        conn
+        |> put_layout("app.html")
+        |> assign(:page_title, "New user")
+        |> assign(:changeset, changeset)
+        |> render("new.html")
     end
   end
 
@@ -65,7 +75,11 @@ defmodule Social.UserController do
         |> put_flash(:info, "User updated successfully.")
         |> redirect(to: user_path(conn, :show, user))
       {:error, changeset} ->
-        render(conn, "edit.html", user: user, changeset: changeset, page_title: "kees")
+        conn
+        |> put_layout("app.html")
+        |> assign(:page_title, "New user")
+        |> assign(:changeset, changeset)
+        |> render("edit.html")
     end
   end
 

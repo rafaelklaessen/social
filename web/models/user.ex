@@ -32,10 +32,10 @@ defmodule Social.User do
     struct
     |> cast(params, [:username, :name, :password, :email, :bio, :location, :website, :birthday, :profile_picture, :banner, :theme_color, :settings, :following, :followers, :likes, :lists])
     |> validate_required([:username, :name, :password, :email])
+    |> unique_constraint(:email, name: :users_email_index)
+    |> unique_constraint(:username, name: :users_username_index)
     |> validate_format(:email, ~r/@/)
     |> validate_length(:password, min: 5)
-    |> unique_constraint(:username, name: :users_username_index)
-    |> unique_constraint(:email, name: :users_email_index)
   end
 
 end
