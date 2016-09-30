@@ -6,6 +6,7 @@ defmodule Social.Repo.Migrations.CreateUser do
       add :username, :string
       add :name, :string
       add :password, :string
+      add :password_salt, :text
       add :email, :string
       add :bio, :string
       add :location, :string
@@ -14,11 +15,11 @@ defmodule Social.Repo.Migrations.CreateUser do
       add :profile_picture, :string
       add :banner, :string
       add :theme_color, :string
-      add :settings, :string
-      add :following, :string
-      add :followers, :string
-      add :likes, :string
-      add :lists, :string
+      add :settings, :text
+      add :following, :text
+      add :followers, :text
+      add :likes, :text
+      add :lists, :text
 
       timestamps()
     end

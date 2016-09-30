@@ -24,6 +24,12 @@
   </div>
 
   <div class="form-group">
+    <%= label f, :password_salt, class: "control-label" %>
+    <%= text_input f, :password_salt, class: "form-control" %>
+    <%= error_tag f, :password_salt %>
+  </div>
+
+  <div class="form-group">
     <%= label f, :bio, class: "control-label" %>
     <%= text_input f, :bio, class: "form-control" %>
     <%= error_tag f, :bio %>

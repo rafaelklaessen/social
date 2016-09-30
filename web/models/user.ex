@@ -5,6 +5,7 @@ defmodule Social.User do
     field :username, :string, unique: true
     field :name, :string
     field :password, :string
+    field :password_salt, :string
     field :email, :string, unique: true
     field :bio, :string
     field :location, :string
@@ -30,8 +31,8 @@ defmodule Social.User do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:username, :name, :password, :email, :bio, :location, :website, :birthday, :profile_picture, :banner, :theme_color, :settings, :following, :followers, :likes, :lists])
-    |> validate_required([:username, :name, :password, :email])
+    |> cast(params, [:username, :name, :password, :password_salt, :email, :bio, :location, :website, :birthday, :profile_picture, :banner, :theme_color, :settings, :following, :followers, :likes, :lists])
+    |> validate_required([:username, :name, :password, :password_salt, :email])
     |> unique_constraint(:email, name: :users_email_index)
     |> unique_constraint(:username, name: :users_username_index)
     |> validate_format(:email, ~r/@/)
