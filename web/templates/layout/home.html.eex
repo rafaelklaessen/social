@@ -14,8 +14,8 @@
   <body>
     <%= render @view_module, @view_template, assigns %>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
     <script src="<%= static_path(@conn, "/js/home.js") %>"></script>
+    <script>require('web/static/js/home.js')</script>
   </body>
 </html>

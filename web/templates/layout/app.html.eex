@@ -14,44 +14,68 @@
 
   <body>
     <header id="header" class="header">
-      <nav id="nav" class="nav">
-        <ul class="nav-items-container">
-          <li class="home-link"><a href="/">Home</a></li>
-          <li class="notifications-link"><a href="/i/notifications">Notifications</a></li>
-          <li class="messages-link"><a href="/i/messages">Messages</a></li>
-        </ul>
-      </nav>
-      <figure class="logo">
-        <img src="<%= static_path(@conn, "/images/logo.png") %>" alt="Logo">
-      </figure>
-      <section class="actions">
-        <ul class="actions-items-container">
-          <li class="search"><input id="search-input" class="search-input" type="text" placeholder="Search Social"></li>
-          <li class="profile-actions">
-            <figure class="profile-pic">
-              <img src="" title="Profile and settings" alt="Profile picture">
-            </figure>
-            <ul class="profile-actions-dropdown">
-              <li class="current-user" data-name="profile">
-                <a href="#">
-                  <div class="content">
-                    <b class="fullname">Kees</b>
-                    <div class="view-profile">View profile</div>
-                  </div>
-                </a>
-              </li>
-              <li class="divider"></li>
-              <li data-name="lists"><a href="#">Lists</a></li>
-              <li class="divider"></li>
-              <li data-name="help"><a href="/support">Help</a></li>
-              <li class="btn" data-name="keyboard-shortcuts"><a href="#">Keyboard shortcuts</a></li>
-              <li class="divider"></li>
-              <li data-name="settings"><a href="/settings/account">Settings</a></li>
-              <li class="signout"><a href="#">Log out</a></li>
-            </ul>
-          </li>
-          <li class="new-tweet-btn">Tweet</li>
-        </ul>
+      <section class="container">
+        <nav id="nav" class="nav">
+          <ul class="nav-item-container">
+            <li class="nav-item home-link current">
+              <a href="/">
+                <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Home icon"></span>
+                <span class="link-text">Home</span>
+              </a>
+              <div class="bottom-line"></div>
+            </li>
+            <li class="nav-item notifications-link">
+              <a href="/i/notifications">
+                <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Notifications icon"></span>
+                <span class="link-text">Notifications</span>
+              </a>
+              <div class="bottom-line"></div>
+            </li>
+            <li class="nav-item messages-link">
+              <a href="/i/messages">
+                <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Messages icon"></span>
+                <span class="link-text">Messages</span>
+              </a>
+              <div class="bottom-line"></div>
+            </li>
+          </ul>
+        </nav>
+        <figure id="logo" class="logo">
+          <a href="/">
+            <img src="<%= static_path(@conn, "/images/logo.png") %>" alt="Logo">
+          </a>
+        </figure>
+        <section id="actions" class="actions">
+          <ul class="actions-item-container">
+            <li class="actions-item search"><input id="search-input" class="search-input" type="text" placeholder="Search Social"></li>
+            <li class="actions-item profile-actions">
+              <figure class="profile-pic" style="background-image: url('<%= static_path(@conn, "/images/profile-picture.png") %>');"></figure>
+              <ul class="profile-actions-dropdown">
+                <li class="current-user" data-name="profile">
+                  <a href="#">
+                    <div class="content">
+                      <b class="name">Kees</b>
+                      <div class="view-profile">View profile</div>
+                    </div>
+                  </a>
+                </li>
+                <li class="divider"></li>
+                <li data-name="lists"><a href="#">Lists</a></li>
+                <li class="divider"></li>
+                <li data-name="help"><a href="/support">Help</a></li>
+                <li class="divider"></li>
+                <li data-name="settings"><a href="/settings/account">Settings</a></li>
+                <li class="signout"><a href="#">Log out</a></li>
+              </ul>
+            </li>
+            <li id="global-new-tweet-btn" class="actions-item new-tweet-btn btn" title="Compose Tweet">
+              <span class="btn-content-container">
+                <span class="btn-icon"><img src="<%= static_path(@conn, "/images/icons/tweet-icon.png") %>" alt="Tweet icon"></span>
+                <span class="btn-text">Tweet</span>
+              </span>
+            </li>
+          </ul>
+        </section>
       </section>
     </header>
     <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
@@ -60,8 +84,37 @@
     <main role="main">
       <%= render @view_module, @view_template, assigns %>
     </main>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <section id="new-tweet" class="new-tweet overlay">
+      <section class="modal">
+        <header class="title-container">
+          <h1 class="title">Compose new Tweet</h1>
+          <div class="close-btn btn">
+            <img src="<%= static_path(@conn, "/images/icons/close-icon.png") %>" alt="Close icon">
+          </div>
+        </header>
+        <section class="content-container">
+          <textarea class="compose-field" placeholder="What's happening?"></textarea>
+          <section class="btn-container">
+            <ul class="left-btn-container">
+              <li id="add-media-btn" class="add-media btn" title="Add media">
+                <img class="icon" src="<%= static_path(@conn, "/images/icons/media-icon.png") %>" alt="Media icon">
+              </li>
+            </ul>
+            <div class="right-container">
+              <span class="char-count item">140</span>
+              <span class="tweet-btn btn item">
+                <span class="btn-content-container">
+                 <span class="btn-icon"><img src="<%= static_path(@conn, "/images/icons/tweet-icon.png") %>" alt="Tweet icon"></span>
+                 <span class="btn-text">Tweet</span>
+                </span>
+              </span>
+            </div>
+          </section>
+        </section>
+      </section>
+    </section>
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
     <script src="<%= static_path(@conn, "/js/platform.js") %>"></script>
+    <script>require('web/static/js/platform.js')</script>
   </body>
 </html>
