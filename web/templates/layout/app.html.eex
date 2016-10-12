@@ -81,7 +81,7 @@
     <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
     <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
 
-    <main role="main">
+    <main id="main" class="main" role="main">
       <%= render @view_module, @view_template, assigns %>
     </main>
     <section id="new-tweet" class="new-tweet overlay">
@@ -102,7 +102,7 @@
             </ul>
             <div class="right-container">
               <span class="char-count item">140</span>
-              <span class="tweet-btn btn item">
+              <span class="tweet-btn btn item" disabled="disabled">
                 <span class="btn-content-container">
                  <span class="btn-icon"><img src="<%= static_path(@conn, "/images/icons/tweet-icon.png") %>" alt="Tweet icon"></span>
                  <span class="btn-text">Tweet</span>

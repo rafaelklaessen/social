@@ -12,7 +12,58 @@
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/home.css") %>">
   </head>
   <body>
-    <%= render @view_module, @view_template, assigns %>
+    <section id="bg" class="bg" style="background-image: url('<%= static_path(@conn, "/images/bg/default-bg.jpg") %>')"></section>
+    <header id="header" class="header">
+      <section class="container">
+        <figure id="logo" class="logo">
+          <a href="/">
+            <img src="<%= static_path(@conn, "/images/logo.png") %>" alt="Logo">
+          </a>
+        </figure>
+        <section id="login-btn-container" class="login-btn-container">
+          <div id="login-btn" class="login-btn btn">Login</div>
+        </section>
+      </section>
+    </header>
+    <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
+    <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+
+    <main id="main" class="main" role="main">
+      <%= render @view_module, @view_template, assigns %>
+    </main>
+
+    <section id="login" class="login overlay">
+      <section class="modal">
+        <header class="title-container">
+          <h1 class="title">Login</h1>
+          <div class="close-btn btn">
+            <img src="<%= static_path(@conn, "/images/icons/close-icon.png") %>" alt="Close icon">
+          </div>
+        </header>
+        <section class="content-container">
+          <form id="login-form" class="login-form form" method="post">
+            <div class="form-error"></div>
+            <div class="form-group username-form-group">
+              <label class="input-label" for="usernameOrEmail">Username or email</label>
+              <input id="usernameOrEmail-input" class="input usernameOrEmail-input" name="usernameOrEmail" type="text">
+              <div class="input-error usernameOrEmail-input-error"></div> 
+            </div>
+            <div class="form-group password-form-group">
+              <label class="input-label" for="password">Password</label>
+              <input id="password-input" class="input password-input" name="password" type="text">
+              <div class="input-error password-input-error"></div> 
+            </div>
+            <div class="form-group checkbox-form-group stay-logged-in-form-group">
+              <input id="stay-logged-in-checkbox" class="checkbox stay-logged-in-checkbox" name="stay-logged-in" type="checkbox" style="background-image: url('<%= static_path(@conn, "/images/icons/check-icon.png") %>')">
+              <label class="checkbox-label" for="stay-logged-in">Stay logged in</label>
+              <span class="seperator">·</span>
+              <a href="/account/begin_password_reset" class="forgot-password-link">Forgot password?</a> 
+            </div>
+            <input id="login-btn" class="login-btn blue-btn submit-btn" type="submit" value="Login">
+          </form>
+        </section>
+      </section>
+    </section>
 
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
     <script src="<%= static_path(@conn, "/js/home.js") %>"></script>

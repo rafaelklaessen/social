@@ -2,11 +2,15 @@
 // Main color
 $mainColor: #64B5F6;
 // Main color on hover
-$mainColorHover: #3EA2F4;
+$mainColorHover: #1976D2;
 // Main grey color
 $mainGreyColor: #546E7A;
 // Main grey color, lighter
 $mainGreyColorLight: #CFD8DC;
+// Main red color
+$mainRedColor: #D32F2F;
+// Main red color, lighter
+$mainRedColorLight: #EF9A9A;
 // Main box shadow
 $mainBoxShadow: 8px 0 30px 10px rgba(0, 0, 0, 0.14);
 // Mixin for transition
@@ -20,14 +24,114 @@ body {
   margin: 0;
   line-height: 1.5;
   font-family: 'Roboto', sans-serif;
+  color: $mainGreyColor;
   background-color: $mainColor;
   box-sizing: border-box;
 }
 * {
   box-sizing: border-box;
 }
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+h1, h2 {
+  font-weight: 300;
+}
+h1 {
+  font-size: 32px;
+}
+h2 {
+  font-size: 26px;
+}
+h3 {
+  font-size: 20px;
+  font-weight: 400;
+}
+a {
+  color: $mainColor;
+  text-decoration: inherit;
+  @include transition(color .2s ease-in-out);
+
+  &:hover {
+    color: $mainColorHover;
+  }
+}
+input, textarea {
+  padding: 5px;
+  line-height: inherit;
+  font: inherit;
+  color: inherit;
+  background-color: #EBEFF2;
+  border: 0;
+  outline-width: 0;
+}
+textarea {
+  resize: none;
+}
+label {
+  display: block;
+}
+.input-error,
+.checkbox-error {
+  color: $mainRedColor;
+}
+.form .form-error.error {
+  padding: 5px 9px;
+  margin-bottom: 20px;
+  color: $mainRedColor;
+  background-color: $mainRedColorLight;
+  border: 1px solid $mainRedColor;
+}
+.form .form-group {
+  margin-bottom: 20px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+.form .checkbox-form-group .checkbox, 
+.form .checkbox-form-group .checkbox-label {
+  float: left;
+}
+.form .checkbox-form-group .checkbox {
+  margin-top: 4px;
+  margin-right: 10px;
+  width: 16px;
+  height: 16px;
+  border: 1px solid $mainGreyColorLight;
+  cursor: pointer;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+.form .checkbox-form-group .checkbox:not(:checked) {
+  background: none !important;
+}
+.form .checkbox-form-group .checkbox:checked {
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 .btn {
   cursor: pointer;
+}
+.blue-btn {
+  padding: 10px 20px;
+  text-align: center;
+  line-height: 1;
+  color: #FFFFFF;
+  background-color: $mainColor;
+  cursor: pointer;
+  @include transition(background-color .2s ease-in-out);
+
+  &:hover {
+    background-color: $mainColorHover;
+  }
+}
+input.blue-btn {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
 }
 .overlay {
   position: fixed;
@@ -68,7 +172,6 @@ body {
 }
 .widget .title-container .title,
 .modal .title-container .title {
-  margin: 0;
   width: 100%;
   line-height: 0;
   color: #000000;
@@ -91,8 +194,10 @@ body {
 }
 .widget .content-container,
 .modal .content-container {
-  padding-top: 20px;
   line-height: 1;
+}
+.modal .content-container {
+  padding-top: 20px;
 }
 .widget .content-container *,
 .modal .content-container * {
@@ -121,260 +226,24 @@ $headerHeightMinusTen: 55px;
   width: 1200px;
   height: 100%;
 }
-#header .container #nav {
-  float: left;
-}
-#header .container #nav .nav-item-container {
-  margin: 0 -10px;
-  padding: 0;
-  list-style: none;
-}
-#header .container #nav .nav-item-container .nav-item {
-  position: relative;
-  float: left;
-  margin-left: 10px;
-  margin-right: 10px;
-  overflow: hidden;
-  cursor: pointer;
-  @include transition(all .2s ease-in-out);
-
-  &.current {
-    color: $mainColor;
-
-    .bottom-line {
-      bottom: 0;
-    }
-  }
-  &:hover {
-    color: $mainColor;
-
-    .bottom-line {
-      bottom: 0;
-    }
-    .icon {
-      color: $mainColor;
-    }
-  }
-}
-#header .container #nav .nav-item-container .nav-item .bottom-line {
-  position: absolute;
-  bottom: -3px;
-  width: 100%;
-  height: 3px;
-  background-color: $mainColor;
-  @include transition(all .2s ease-in-out);
-}
-#header .container #nav .nav-item-container .nav-item a {
-  color: inherit;
-  text-decoration: inherit;
-}
-#header .container #nav .nav-item-container .nav-item .icon {
-  margin-right: 5px;
-}
-#header .container #nav .nav-item-container .nav-item .icon img {
-  width: auto;
-  height: 25px;
-  vertical-align: middle;
-}
 #header .container #logo {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  margin: 0;
+  height: 55px;
   display: inline-block;
 }
 #header .container #logo a {
   color: inherit;
-  text-decoration: inherit;
 }
 #header .container #logo a img {
   height: $headerHeightMinusTen;
   width: auto;
 }
-#header .container #actions {
-  float: right;
-}
-#header .container #actions .actions-item-container {
-  margin: 0;
-  padding: 5px 0;
-  height: $headerHeight;
-  list-style: none;
-  display: block;
-}
-#header .container #actions .actions-item-container .actions-item {
-  float: left;
-}
-#header .container #actions .actions-item-container .search {
-  height: $headerHeightMinusTen;
-  line-height: 0;
-}
-#header .container #actions .actions-item-container .search .search-input {
-  padding: 0 20px;
-  width: 200px;
-  height: 100%;
-  font: inherit;
-  color: inherit;
-  background-color: #EBEFF2;
-  border: 0;
-  outline-width: 0;
-}
-#header .container #actions .actions-item-container .profile-actions {
-  position: relative;
-  margin-left: 20px;
-  margin-right: 20px;
-}
-#header .container #actions .actions-item-container .profile-actions .profile-pic {
-  margin: 0;
-  width: $headerHeightMinusTen;
-  height: $headerHeightMinusTen;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  border-radius: 100%;
-  cursor: pointer;
-}
-#header .container #actions .actions-item-container .profile-actions .profile-actions-dropdown {
+#main {
   position: absolute;
-  top: $headerHeight;
-  left: -20px;
-  margin: 0;
-  padding: 16px 0;
-  width: 200px;
-  line-height: 1.5;
-  background-color: #FFFFFF;
-  box-shadow: $mainBoxShadow;
-  list-style: none;
-  display: none;
-}
-#header .container #actions .actions-item-container .profile-actions .profile-actions-dropdown li {
-  padding-left: 20px;
-  padding-right: 20px;
-  cursor: pointer;
-  @include transition(all .2s ease-in-out);
-  
-  &:hover {
-    color: $mainColor;
-    
-    .content .name {
-      color: $mainColor;
-    }
-  }
-}
-#header .container #actions .actions-item-container .profile-actions .profile-actions-dropdown li.divider {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  top: 65px;
   width: 100%;
-  height: 1px;
-  background-color: $mainGreyColorLight;
-}
-#header .container #actions .actions-item-container .profile-actions .profile-actions-dropdown li a {
-  color: inherit;
-  text-decoration: inherit;
-}
-#header .container #actions .actions-item-container .profile-actions .profile-actions-dropdown .current-user .content .name {
-  color: #000000;
-  font-size: 20px;
-  @include transition(all .2s ease-in-out);
-}
-#header .container #actions .actions-item-container .new-tweet-btn {
-  padding: 0 30px;
-  height: $headerHeightMinusTen;
-  line-height: $headerHeightMinusTen;
-  color: #FFFFFF;
-  background-color: $mainColor;
-  cursor: pointer;
-  @include transition(all .2s ease-in-out);
-
-  &:hover {
-    background-color: $mainColorHover;
-  }
-}
-#header .container #actions .actions-item-container .new-tweet-btn .btn-content-container .btn-icon img {
-  margin-right: 5px;
-  width: auto;
-  height: 25px;
-  vertical-align: middle;
-}
-#new-tweet {
-  color: $mainGreyColor;
-}
-#new-tweet .modal .title-container .title {
-  text-align: center;
-}
-#new-tweet .modal .content-container .compose-field {
-  padding: 16px 20px;
-  width: 100%;
-  height: 104px;
-  line-height: inherit;
-  color: inherit;
-  font: inherit;
-  background-color: #EBEFF2;
-  border: 0;
-  outline-width: 0;
-  resize: none;
-}
-#new-tweet .modal .content-container .btn-container {
-  padding-top: 20px;
-  width: 100%;
-  height: 66px;
-  line-height: 46px;
-  vertical-align: middle;
-  display: inline-block;
-
-  * {
-    line-height: 46px;
-  }
-}
-#new-tweet .modal .content-container .btn-container .left-btn-container {
-  float: left;
-  margin: 0;
-  padding: 0;
-  height: 25px;
-  list-style: none;
-}
-#new-tweet .modal .content-container .btn-container .left-btn-container .btn {
-  float: left;
-  height: 100%;
-}
-#new-tweet .modal .content-container .btn-container .left-btn-container .btn .icon {
-  width: auto;
-  height: 25px;
-}
-#new-tweet .modal .content-container .btn-container .right-container {
-  float: right;
-}
-#new-tweet .modal .content-container .btn-container .right-container .item {
-  float: left;
-}
-#new-tweet .modal .content-container .btn-container .right-container .char-count.warn {
-  color: #D32F2F;
-}
-#new-tweet .modal .content-container .btn-container .right-container .tweet-btn {
-  margin-left: 20px;
-  padding: 10px 20px;
-  line-height: 1.5;
-  color: #FFFFFF;
-  background-color: $mainColor;
-  @include transition(all .2s ease-in-out);
-
-  &:hover {
-    background-color: $mainColorHover;
-  }
-  &[disabled="disabled"] {
-    opacity: 0.7;
-    cursor: default;
-    
-    &:hover {
-      background-color: $mainColor;
-    }
-  }
-  * {
-    line-height: 1.5;
-  }
-}
-#new-tweet .modal .content-container .btn-container .right-container .tweet-btn .btn-content-container .btn-icon img {
-  margin-right: 5px;
-  width: auto;
-  height: 25px;
-  vertical-align: middle;
 }

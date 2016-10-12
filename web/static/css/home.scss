@@ -1,0 +1,96 @@
+// Main color
+$mainColor: #64B5F6;
+// Main color on hover
+$mainColorHover: #1976D2;
+// Main grey color
+$mainGreyColor: #546E7A;
+// Main grey color, lighter
+$mainGreyColorLight: #CFD8DC;
+// Main box shadow
+$mainBoxShadow: 8px 0 30px 10px rgba(0, 0, 0, 0.14);
+// Mixin for transition
+@mixin transition($transition) {
+  transition: $transition;
+  -moz-transition: $transition;
+  -webkit-transition: $transition;
+  -ms-transition: $transition;
+}
+#bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+#header .container .login-btn-container {
+  float: right;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  display: inline-block;
+}
+#header .container .login-btn-container .login-btn {
+  padding: 0 30px;
+  line-height: 55px;
+  vertical-align: middle;
+  color: #FFFFFF;
+  background-color: $mainColor;
+  @include transition(all .2s ease-in-out);
+
+  &:hover {
+    background-color: $mainColorHover;
+  }
+}
+#main .hero-container {
+  margin-top: 100px;
+  margin-left: 100px;
+  color: #FFFFFF;
+  display: inline-block;
+}
+#main .hero-container .hero-title {
+  font-size: 48px;
+}
+#main .hero-container .hero-subtitle {
+  color: rgba(255, 255, 255, 0.7);
+}
+#main .register-form-container {
+  float: right;
+  margin-top: 100px;
+  margin-right: 100px;
+}
+#main .register-form-container .register-form .form-group .input {
+  width: 350px;
+}
+#login .modal {
+  width: 390px;
+}
+#login .modal .title-container .title {
+  text-align: center;
+}
+#login .modal .content-container .login-form .form-group {
+  width: 350px;
+}
+#login .modal .content-container .login-form .form-group .input-label,
+#login .modal .content-container .login-form .form-group .input,
+#login .modal .content-container .login-form .form-group .input-error {
+  margin-left: auto;
+  margin-right: auto;
+  width: 350px;
+}
+#login .modal .content-container .login-form .checkbox-form-group .checkbox-label {
+  margin-right: 5px;
+}
+#login .modal .content-container .login-form .checkbox-form-group .seperator {
+  float: left;
+}
+#login .modal .content-container .login-form .checkbox-form-group .forgot-password-link {
+  margin-left: 5px;
+}
+#login .modal .content-container .login-form .form-group .input {
+  display: block;
+}
+#login .modal .content-container .login-form .submit-btn {
+  width: 100%;
+}

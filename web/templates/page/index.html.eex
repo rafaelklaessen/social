@@ -1,1 +1,33 @@
-<h1>Home</h1>
+<section class="hero-container">
+  <h1 class="hero-title">Welcome to Social</h1>
+  <h2 class="hero-subtitle">Sum good quote or sumthin</h2>
+</section>
+<section class="register-form-container widget">
+  <header class="title-container">
+    <h1 class="title">Register</h1>
+  </header>
+  <section class="content-container">
+    <form id="register-form" class="register-form form" method="post">
+      <div class="form-group name-form-group">
+        <label class="input-label" for="name">Name</label>
+        <input id="name-input" class="input name-input" name="name" type="text">
+        <div class="input-error name-input-error"></div> 
+      </div>
+      <div class="form-group username-form-group">
+        <label class="input-label" for="username">Username</label>
+        <input id="username-input" class="input username-input" name="username" type="text">
+        <div class="input-error username-input-error"></div> 
+      </div>
+      <div class="form-group email-form-group">
+        <label class="input-label" for="email">Email address</label>
+        <input id="email-input" class="input email-input" name="email" type="text">
+        <div class="input-error email-input-error"></div> 
+      </div>
+      <div class="form-group password-form-group">
+        <label class="input-label" for="password">Password</label>
+        <input id="password-input" class="input password-input" name="password" type="text">
+        <div class="input-error password-input-error"></div> 
+      </div>
+    </form>
+  </section>
+</section>

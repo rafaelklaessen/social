@@ -1,0 +1,247 @@
+// Main color
+$mainColor: #64B5F6;
+// Main color on hover
+$mainColorHover: #1976D2;
+// Main grey color
+$mainGreyColor: #546E7A;
+// Main grey color, lighter
+$mainGreyColorLight: #CFD8DC;
+// Main box shadow
+$mainBoxShadow: 8px 0 30px 10px rgba(0, 0, 0, 0.14);
+// Mixin for transition
+@mixin transition($transition) {
+  transition: $transition;
+  -moz-transition: $transition;
+  -webkit-transition: $transition;
+  -ms-transition: $transition;
+}
+$headerHeight: 65px;
+$headerHeightMinusTen: 55px;
+#header .container #nav {
+  float: left;
+}
+#header .container #nav .nav-item-container {
+  margin: 0 -10px;
+  padding: 0;
+  list-style: none;
+}
+#header .container #nav .nav-item-container .nav-item {
+  position: relative;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  @include transition(all .2s ease-in-out);
+
+  &.current {
+    color: $mainColor;
+
+    .bottom-line {
+      bottom: 0;
+    }
+  }
+  &:hover {
+    color: $mainColor;
+
+    .bottom-line {
+      bottom: 0;
+    }
+    .icon {
+      color: $mainColor;
+    }
+  }
+}
+#header .container #nav .nav-item-container .nav-item .bottom-line {
+  position: absolute;
+  bottom: -3px;
+  width: 100%;
+  height: 3px;
+  background-color: $mainColor;
+  @include transition(all .2s ease-in-out);
+}
+#header .container #nav .nav-item-container .nav-item a {
+  color: inherit;
+}
+#header .container #nav .nav-item-container .nav-item .icon {
+  margin-right: 5px;
+}
+#header .container #nav .nav-item-container .nav-item .icon img {
+  width: auto;
+  height: 25px;
+  vertical-align: middle;
+}
+#header .container #actions {
+  float: right;
+}
+#header .container #actions .actions-item-container {
+  margin: 0;
+  padding: 5px 0;
+  height: $headerHeight;
+  list-style: none;
+  display: block;
+}
+#header .container #actions .actions-item-container .actions-item {
+  float: left;
+}
+#header .container #actions .actions-item-container .search {
+  height: $headerHeightMinusTen;
+  line-height: 0;
+}
+#header .container #actions .actions-item-container .search .search-input {
+  padding: 0 20px;
+  height: 100%;
+}
+#header .container #actions .actions-item-container .profile-actions {
+  position: relative;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+#header .container #actions .actions-item-container .profile-actions .profile-pic {
+  margin: 0;
+  width: $headerHeightMinusTen;
+  height: $headerHeightMinusTen;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 100%;
+  cursor: pointer;
+}
+#header .container #actions .actions-item-container .profile-actions .profile-actions-dropdown {
+  position: absolute;
+  top: $headerHeight;
+  left: -20px;
+  margin: 0;
+  padding: 16px 0;
+  width: 200px;
+  line-height: 1.5;
+  background-color: #FFFFFF;
+  box-shadow: $mainBoxShadow;
+  list-style: none;
+  display: none;
+}
+#header .container #actions .actions-item-container .profile-actions .profile-actions-dropdown li {
+  padding-left: 20px;
+  padding-right: 20px;
+  cursor: pointer;
+  @include transition(all .2s ease-in-out);
+  
+  &:hover {
+    color: $mainColor;
+    
+    .content .name {
+      color: $mainColor;
+    }
+  }
+}
+#header .container #actions .actions-item-container .profile-actions .profile-actions-dropdown li.divider {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  height: 1px;
+  background-color: $mainGreyColorLight;
+}
+#header .container #actions .actions-item-container .profile-actions .profile-actions-dropdown li a {
+  color: inherit;
+}
+#header .container #actions .actions-item-container .profile-actions .profile-actions-dropdown .current-user .content .name {
+  color: #000000;
+  font-size: 20px;
+  @include transition(all .2s ease-in-out);
+}
+#header .container #actions .actions-item-container .new-tweet-btn {
+  padding: 0 30px;
+  height: $headerHeightMinusTen;
+  line-height: $headerHeightMinusTen;
+  color: #FFFFFF;
+  background-color: $mainColor;
+  cursor: pointer;
+  @include transition(all .2s ease-in-out);
+
+  &:hover {
+    background-color: $mainColorHover;
+  }
+}
+#header .container #actions .actions-item-container .new-tweet-btn .btn-content-container .btn-icon img {
+  margin-right: 5px;
+  width: auto;
+  height: 25px;
+  vertical-align: middle;
+}
+#new-tweet {
+  color: $mainGreyColor;
+}
+#new-tweet .modal .title-container .title {
+  text-align: center;
+}
+#new-tweet .modal .content-container .compose-field {
+  padding: 16px 20px;
+  width: 100%;
+  height: 104px;
+  resize: none;
+}
+#new-tweet .modal .content-container .btn-container {
+  padding-top: 20px;
+  width: 100%;
+  height: 66px;
+  line-height: 46px;
+  vertical-align: middle;
+  display: inline-block;
+
+  * {
+    line-height: 46px;
+  }
+}
+#new-tweet .modal .content-container .btn-container .left-btn-container {
+  float: left;
+  margin: 0;
+  padding: 0;
+  height: 25px;
+  list-style: none;
+}
+#new-tweet .modal .content-container .btn-container .left-btn-container .btn {
+  float: left;
+  height: 100%;
+}
+#new-tweet .modal .content-container .btn-container .left-btn-container .btn .icon {
+  width: auto;
+  height: 25px;
+}
+#new-tweet .modal .content-container .btn-container .right-container {
+  float: right;
+}
+#new-tweet .modal .content-container .btn-container .right-container .item {
+  float: left;
+}
+#new-tweet .modal .content-container .btn-container .right-container .char-count.warn {
+  color: #D32F2F;
+}
+#new-tweet .modal .content-container .btn-container .right-container .tweet-btn {
+  margin-left: 20px;
+  padding: 10px 20px;
+  line-height: 1.5;
+  color: #FFFFFF;
+  background-color: $mainColor;
+  @include transition(all .2s ease-in-out);
+
+  &:hover {
+    background-color: $mainColorHover;
+  }
+  &[disabled="disabled"] {
+    opacity: 0.7;
+    cursor: default;
+    
+    &:hover {
+      background-color: $mainColor;
+    }
+  }
+  * {
+    line-height: 1.5;
+  }
+}
+#new-tweet .modal .content-container .btn-container .right-container .tweet-btn .btn-content-container .btn-icon img {
+  margin-right: 5px;
+  width: auto;
+  height: 25px;
+  vertical-align: middle;
+}
