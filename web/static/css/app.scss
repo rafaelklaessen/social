@@ -5,6 +5,8 @@ $mainColor: #64B5F6;
 $mainColorHover: #1976D2;
 // Main grey color
 $mainGreyColor: #546E7A;
+// Main grey color on hover
+$mainGreyColorHover: #37474F;
 // Main grey color, lighter
 $mainGreyColorLight: #CFD8DC;
 // Main red color
@@ -35,17 +37,23 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 h1, h2 {
+  color: #000000;
   font-weight: 300;
 }
 h1 {
   font-size: 32px;
 }
 h2 {
-  font-size: 26px;
+  font-size: 22px;
 }
 h3 {
   font-size: 20px;
   font-weight: 400;
+}
+h4 {
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
 }
 a {
   color: $mainColor;
@@ -55,6 +63,9 @@ a {
   &:hover {
     color: $mainColorHover;
   }
+}
+figure {
+  margin: 0;
 }
 input, textarea {
   padding: 5px;
@@ -115,23 +126,36 @@ label {
 .btn {
   cursor: pointer;
 }
-.blue-btn {
+.blue-btn,
+.grey-btn {
   padding: 10px 20px;
   text-align: center;
-  line-height: 1;
   color: #FFFFFF;
-  background-color: $mainColor;
   cursor: pointer;
   @include transition(background-color .2s ease-in-out);
+  display: inline-block;
+}
+input.blue-btn,
+input.grey-btn,
+button.blue-btn,
+button.grey-btn {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+.blue-btn {
+  background-color: $mainColor;
 
   &:hover {
     background-color: $mainColorHover;
   }
 }
-input.blue-btn {
-  appearance: none;
-  -moz-appearance: none;
-  -webkit-appearance: none;
+.grey-btn {
+  background-color: $mainGreyColor;
+
+  &:hover {
+    background-color: $mainGreyColorHover;
+  }
 }
 .overlay {
   position: fixed;
@@ -146,8 +170,16 @@ input.blue-btn {
 .widget,
 .modal {
   padding: 20px;
+  line-height: 1;
   background-color: #FFFFFF;
   box-shadow: $mainBoxShadow;
+
+  * {
+    line-height: 1.5;
+  }
+}
+.widget {
+  margin-bottom: 40px;
 }
 .modal {
   position: absolute;
@@ -169,13 +201,17 @@ input.blue-btn {
   padding-bottom: 20px;
   width: 100%;
   display: inline-block;
+
+  &:last-child {
+    padding-bottom: 0;
+  }
 }
 .widget .title-container .title,
 .modal .title-container .title {
   width: 100%;
   line-height: 0;
   color: #000000;
-  font-size: 26px;
+  font-size: 22px;
   font-weight: 300;
   display: inline-block;
 }
@@ -184,8 +220,8 @@ input.blue-btn {
   position: absolute;
   top: 0;
   right: 0;
-  width: 18px;
-  height: 18px;
+  width: 14px;
+  height: 14px;
 }
 .widget .title-container .close-btn img,
 .modal .title-container .close-btn img {
@@ -194,7 +230,9 @@ input.blue-btn {
 }
 .widget .content-container,
 .modal .content-container {
+  width: 100%;
   line-height: 1;
+  display: inline-block;
 }
 .modal .content-container {
   padding-top: 20px;
@@ -231,7 +269,6 @@ $headerHeightMinusTen: 55px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  margin: 0;
   height: 55px;
   display: inline-block;
 }
@@ -244,6 +281,18 @@ $headerHeightMinusTen: 55px;
 }
 #main {
   position: absolute;
-  top: 65px;
-  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 65px;
+  width: 1200px;
+}
+#main .left-col {
+  float: left;
+  padding-right: 20px;
+  width: 400px;
+}
+#main .right-col {
+  float: right;
+  padding-left: 20px;
+  width: 800px;
 }

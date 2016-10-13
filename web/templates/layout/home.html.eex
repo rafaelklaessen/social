@@ -50,7 +50,7 @@
             </div>
             <div class="form-group password-form-group">
               <label class="input-label" for="password">Password</label>
-              <input id="password-input" class="input password-input" name="password" type="text">
+              <input id="password-input" class="input password-input" name="password" type="password">
               <div class="input-error password-input-error"></div> 
             </div>
             <div class="form-group checkbox-form-group stay-logged-in-form-group">

@@ -2,7 +2,7 @@ import 'phoenix_html'
 import $ from 'jquery'
 
 /**
- * TODO: Implement OOP when stuff is done 
+ * TODO: Implement OOP when stuff is done
  */
 // Close modals
 $('.modal .title-container .close-btn').click(function() {

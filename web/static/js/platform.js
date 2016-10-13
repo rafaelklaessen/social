@@ -2,7 +2,8 @@ import $ from 'jquery'
 import {openModal, closeModal, notify} from './app'
 
 // Open and close header dropdown
-$('#header .container #actions .actions-item-container .profile-actions .profile-pic').click(function() {
+$('#header .container #actions .actions-item-container .profile-actions .profile-picture').click(function() {
+  console.log('kaas')
   $(this).siblings('.profile-actions-dropdown').stop().toggle(200);
 });
 // Open Compose Tweet modal when Tweet button is clicked

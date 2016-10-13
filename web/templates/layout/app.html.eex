@@ -49,7 +49,7 @@
           <ul class="actions-item-container">
             <li class="actions-item search"><input id="search-input" class="search-input" type="text" placeholder="Search Social"></li>
             <li class="actions-item profile-actions">
-              <figure class="profile-pic" style="background-image: url('<%= static_path(@conn, "/images/profile-picture.png") %>');"></figure>
+              <figure class="profile-picture" style="background-image: url('<%= static_path(@conn, "/images/profile-picture.png") %>');"></figure>
               <ul class="profile-actions-dropdown">
                 <li class="current-user" data-name="profile">
                   <a href="#">

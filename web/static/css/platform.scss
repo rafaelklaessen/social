@@ -4,8 +4,14 @@ $mainColor: #64B5F6;
 $mainColorHover: #1976D2;
 // Main grey color
 $mainGreyColor: #546E7A;
+// Main grey color on hover
+$mainGreyColorHover: #37474F;
 // Main grey color, lighter
 $mainGreyColorLight: #CFD8DC;
+// Main red color
+$mainRedColor: #D32F2F;
+// Main red color, lighter
+$mainRedColorLight: #EF9A9A;
 // Main box shadow
 $mainBoxShadow: 8px 0 30px 10px rgba(0, 0, 0, 0.14);
 // Mixin for transition
@@ -97,8 +103,7 @@ $headerHeightMinusTen: 55px;
   margin-left: 20px;
   margin-right: 20px;
 }
-#header .container #actions .actions-item-container .profile-actions .profile-pic {
-  margin: 0;
+#header .container #actions .actions-item-container .profile-actions .profile-picture {
   width: $headerHeightMinusTen;
   height: $headerHeightMinusTen;
   background-position: center center;
@@ -244,4 +249,216 @@ $headerHeightMinusTen: 55px;
   width: auto;
   height: 25px;
   vertical-align: middle;
+}
+#profile-data-top {
+  position: relative;
+  margin-top: 65px;
+  margin-bottom: -25px;
+  width: 100%;
+  height: 495px;
+}
+#profile-data-top .banner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+#profile-data-top .profile-data-container {
+  padding-top: 90px;
+  text-align: center;
+}
+#profile-data-top .profile-data-container .profile-picture {
+  margin: 0 auto 25px auto;
+  width: 150px;
+  height: 150px;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 100%;
+}
+#profile-data-top .profile-data-container .name,
+#profile-data-top .profile-data-container .username {
+  line-height: 1;
+}
+#profile-data-top .profile-data-container .name {
+  margin-bottom: 10px;
+  color: #FFFFFF;
+}
+#profile-data-top .profile-data-container .username {
+  margin-bottom: 30px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 24px;
+}
+#profile-data-top .profile-data-container .btn-container .btn {
+  width: 175px;
+}
+#profile-data-top .profile-data-container .btn-container .follow-btn {
+  margin-right: 15px;
+}
+#profile-data-top .profile-data-container .btn-container .tweet-to-btn {
+  margin-left: 15px;
+}
+#main .left-col .stats-widget .content-container .col {
+  float: left;
+  text-align: center;
+  width: 33%;
+  display: inline-block;
+  
+  &:nth-child(2) {
+    width: 34%;
+  }
+
+  * {
+    line-height: 1;
+  }
+}
+#main .left-col .stats-widget .content-container .col .title {
+  margin-bottom: 10px;
+}
+#main .left-col .profile-data-widget .title-container {
+  padding-bottom: 10px;
+}
+#main .left-col .profile-data-widget .title-container .title .profile-data-name {
+  font-weight: 400;
+}
+#main .left-col .profile-data-widget .title-container .title .profile-data-username {
+  color: $mainGreyColor;
+}
+#main .left-col .profile-data-widget .content-container .profile-data-bio {
+  margin-bottom: 20px;
+}
+#main .left-col .profile-data-widget .content-container .profile-data-item .icon {
+  margin-right: 5px;
+  width: auto;
+  height: 20px;
+  vertical-align: middle;
+  display: inline-block;
+}
+#main .left-col .profile-data-widget .content-container .profile-data-item .icon img {
+  width: auto;
+  height: 100%;
+}
+#main .left-col .followers-you-know-widget .content-container .row {
+  margin-bottom: 20px;
+  width: 100%;
+  display: inline-block;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+#main .left-col .followers-you-know-widget .content-container .row .profile-picture {
+  float: left;
+  margin-right: 20px;
+  width: 70px;
+  height: 70px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+#main .left-col .followers-you-know-widget .content-container .row .profile-picture .user-link {
+  display: inline-block;
+}
+#main .left-col .followers-you-know-widget .content-container .row .profile-picture .user-link img {
+  width: 100%;
+  height: 100%;
+}
+#main .left-col .media-widget {
+  padding-bottom: 5px;
+}
+#main .left-col .media-widget .content-container {
+  margin: -15px;
+  margin-top: 0;
+  width: calc(100% + 30px);
+  line-height: 0;
+}
+#main .left-col .media-widget .content-container .row {
+  margin-bottom: 5px;
+  width: 100%;
+  display: inline-block;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+#main .left-col .media-widget .content-container .row .item {
+  float: left;
+  margin-right: 5px;
+  height: 89px;
+  display: inline-block;
+
+  &:nth-child(2) {
+    margin-right: 4px;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+#main .left-col .media-widget .content-container .row .item .item-link {
+  display: inline-block;
+}
+#main .left-col .media-widget .content-container .row .item .item-link .fakeimg {
+  width: 89px;
+  height: 89px;
+  background-position: center center;;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+#main .right-col .tweet-nav-widget {
+  overflow: hidden;
+}
+#main .right-col .tweet-nav-widget .content-container {
+  margin-left: -10px;
+  margin-right: -10px;
+  width: calc(100% + 20px);
+}
+#main .right-col .tweet-nav-widget .content-container .item {
+  position: relative;
+  float: left;
+  padding-left: 10px;
+  padding-right: 10px;
+  line-height: 0;
+  display: inline-block;
+
+  &:hover {
+    .item-title {
+      color: $mainColor;
+    }
+    .bottom-line {
+      bottom: -22px;
+    }
+  }
+
+  &.current {
+    .item-title {
+      color: $mainColor;
+    }
+    .bottom-line {
+      bottom: -22px;
+    }
+  }
+
+  * {
+    line-height: 1;
+  }
+}
+#main .right-col .tweet-nav-widget .content-container .item .item-link {
+  display: inline-block
+}
+#main .right-col .tweet-nav-widget .content-container .item .item-link .item-title {
+  float: left;
+  @include transition(all .2s ease-in-out);
+}
+#main .right-col .tweet-nav-widget .content-container .item .bottom-line {
+  position: absolute;
+  bottom: -25px;
+  width: calc(100% - 20px);
+  height: 3px;
+  background-color: $mainColor;
+  @include transition(all .2s ease-in-out);
 }

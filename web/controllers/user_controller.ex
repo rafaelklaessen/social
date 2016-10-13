@@ -14,7 +14,12 @@ defmodule Social.UserController do
             where: u.username == ^username,
             select: u.id
     user_id = Repo.all(query)
-    if Enum.count(user_id) == 0 do
+    data_query = from u in User,
+                where: u.username == ^username,
+                select: %{:name => u.name, :password => u.password, :bio => u.bio, :location => u.location, :website => u.website, :birthday => u.birthday, :profile_picture => u.profile_picture, :banner => u.banner, :theme_color => u.theme_color, :settings => u.settings, :following => u.following, :followers => u.followers, :likes => u.likes, :lists => u.lists, :created_at => u.inserted_at}
+    data = Repo.all(data_query)
+    data = hd data
+    if Enum.count(user_id) == 0 || Enum.count(data) == 0 do
       conn
       |> put_layout(false)
       |> put_status(:not_found)
@@ -26,6 +31,7 @@ defmodule Social.UserController do
       conn
       |> assign(:page_title, "Edit user #{username}")
       |> assign(:username, username)
+      |> assign(:data, data)
       |> assign(:changeset, changeset)
       |> assign(:user, user)
       |> render("edit.html")
@@ -138,7 +144,12 @@ defmodule Social.UserController do
             where: u.username == ^username,
             select: u.name
     name = Repo.all(query)
-    if Enum.count(name) == 0 do
+    data_query = from u in User,
+                where: u.username == ^username,
+                select: %{:name => u.name, :password => u.password, :bio => u.bio, :location => u.location, :website => u.website, :birthday => u.birthday, :profile_picture => u.profile_picture, :banner => u.banner, :theme_color => u.theme_color, :settings => u.settings, :following => u.following, :followers => u.followers, :likes => u.likes, :lists => u.lists, :created_at => u.inserted_at}
+    data = Repo.all(data_query)
+    data = hd data
+    if Enum.count(name) == 0 || Enum.count(data) == 0 do
       conn
       |> put_layout(false)
       |> put_status(:not_found)
@@ -147,6 +158,7 @@ defmodule Social.UserController do
       conn
       |> assign(:page_title, "Tweets with replies by #{name} (#{username}) | Social")
       |> assign(:username, username)
+      |> assign(:data, data)
       |> render("show_with_replies.html")
     end
   end
@@ -156,7 +168,12 @@ defmodule Social.UserController do
             where: u.username == ^username,
             select: u.name
     name = Repo.all(query)
-    if Enum.count(name) == 0 do
+    data_query = from u in User,
+                where: u.username == ^username,
+                select: %{:name => u.name, :password => u.password, :bio => u.bio, :location => u.location, :website => u.website, :birthday => u.birthday, :profile_picture => u.profile_picture, :banner => u.banner, :theme_color => u.theme_color, :settings => u.settings, :following => u.following, :followers => u.followers, :likes => u.likes, :lists => u.lists, :created_at => u.inserted_at}
+    data = Repo.all(data_query)
+    data = hd data
+    if Enum.count(name) == 0 || Enum.count(data) == 0 do
       conn
       |> put_layout(false)
       |> put_status(:not_found)
@@ -165,6 +182,7 @@ defmodule Social.UserController do
       conn
       |> assign(:page_title, "Media Tweets by #{name} (#{username}) | Social")
       |> assign(:username, username)
+      |> assign(:data, data)
       |> render("show_media.html")
     end
   end
@@ -174,7 +192,12 @@ defmodule Social.UserController do
             where: u.username == ^username,
             select: u.name
     name = Repo.all(query)
-    if Enum.count(name) == 0 do
+    data_query = from u in User,
+                where: u.username == ^username,
+                select: %{:name => u.name, :password => u.password, :bio => u.bio, :location => u.location, :website => u.website, :birthday => u.birthday, :profile_picture => u.profile_picture, :banner => u.banner, :theme_color => u.theme_color, :settings => u.settings, :following => u.following, :followers => u.followers, :likes => u.likes, :lists => u.lists, :created_at => u.inserted_at}
+    data = Repo.all(data_query)
+    data = hd data
+    if Enum.count(name) == 0 || Enum.count(data) == 0 do
       conn
       |> put_layout(false)
       |> put_status(:not_found)
@@ -183,6 +206,7 @@ defmodule Social.UserController do
       conn
       |> assign(:page_title, "People followed by #{name} (#{username}) | Social")
       |> assign(:username, username)
+      |> assign(:data, data)
       |> render("show_following.html")
     end
   end
@@ -192,7 +216,12 @@ defmodule Social.UserController do
             where: u.username == ^username,
             select: u.name
     name = Repo.all(query)
-    if Enum.count(name) == 0 do
+    data_query = from u in User,
+                where: u.username == ^username,
+                select: %{:name => u.name, :password => u.password, :bio => u.bio, :location => u.location, :website => u.website, :birthday => u.birthday, :profile_picture => u.profile_picture, :banner => u.banner, :theme_color => u.theme_color, :settings => u.settings, :following => u.following, :followers => u.followers, :likes => u.likes, :lists => u.lists, :created_at => u.inserted_at}
+    data = Repo.all(data_query)
+    data = hd data
+    if Enum.count(name) == 0 || Enum.count(data) == 0 do
       conn
       |> put_layout(false)
       |> put_status(:not_found)
@@ -201,6 +230,7 @@ defmodule Social.UserController do
       conn
       |> assign(:page_title, "People following #{name} (#{username}) | Social")
       |> assign(:username, username)
+      |> assign(:data, data)
       |> render("show_followers.html")
     end
   end
@@ -210,7 +240,12 @@ defmodule Social.UserController do
             where: u.username == ^username,
             select: u.name
     name = Repo.all(query)
-    if Enum.count(name) == 0 do
+    data_query = from u in User,
+                where: u.username == ^username,
+                select: %{:name => u.name, :password => u.password, :bio => u.bio, :location => u.location, :website => u.website, :birthday => u.birthday, :profile_picture => u.profile_picture, :banner => u.banner, :theme_color => u.theme_color, :settings => u.settings, :following => u.following, :followers => u.followers, :likes => u.likes, :lists => u.lists, :created_at => u.inserted_at}
+    data = Repo.all(data_query)
+    data = hd data
+    if Enum.count(name) == 0 || Enum.count(data) == 0 do
       conn
       |> put_layout(false)
       |> put_status(:not_found)
@@ -219,6 +254,7 @@ defmodule Social.UserController do
       conn
       |> assign(:page_title, "Tweets liked by #{name} (#{username}) | Social")
       |> assign(:username, username)
+      |> assign(:data, data)
       |> render("show_likes.html")
     end
   end
@@ -228,6 +264,11 @@ defmodule Social.UserController do
             where: u.username == ^username,
             select: u.name
     name = Repo.all(query)
+    data_query = from u in User,
+                where: u.username == ^username,
+                select: %{:name => u.name, :password => u.password, :bio => u.bio, :location => u.location, :website => u.website, :birthday => u.birthday, :profile_picture => u.profile_picture, :banner => u.banner, :theme_color => u.theme_color, :settings => u.settings, :following => u.following, :followers => u.followers, :likes => u.likes, :lists => u.lists, :created_at => u.inserted_at}
+    data = Repo.all(data_query)
+    data = hd data
     if Enum.count(name) == 0 do
       conn
       |> put_layout(false)
@@ -237,6 +278,7 @@ defmodule Social.UserController do
       conn
       |> assign(:page_title, "People you follow, following #{name} (#{username}) | Social")
       |> assign(:username, username)
+      |> assign(:data, data)
       |> render("show_followers_you_know.html")
     end
   end
