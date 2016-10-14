@@ -279,6 +279,33 @@ $headerHeightMinusTen: 55px;
   height: $headerHeightMinusTen;
   width: auto;
 }
+#notification-container {
+  position: fixed;
+  top: 65px;
+  width: 100%;
+  color: $mainGreyColor;
+  box-shadow: $mainBoxShadow;
+  z-index: 99;
+}
+#notification-container .notification {
+  position: relative;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  display: none;
+}
+#notification-container .notification.info-notification {
+  background-color: #FFFFFF;
+}
+#notification-container .notification.error-notification {
+  color: #FFFFFF;
+  background-color: $mainRedColor;
+}
+#notification-container .notification .content-container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 1200px;
+  text-align: center;
+}
 #main {
   position: absolute;
   left: 50%;

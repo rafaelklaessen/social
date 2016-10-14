@@ -10,7 +10,6 @@ defmodule Social.StatusController do
     userdata_query = from u in User,
                  where: u.username == ^username,
                  select: %{:name => u.name, :id => u.id}
-
     userdata = Repo.all(userdata_query)
     if Enum.count(userdata) == 0 do
       conn
@@ -21,15 +20,20 @@ defmodule Social.StatusController do
       userdata = hd userdata
       name = userdata[:name]
       owner = userdata[:id]
-      IO.puts(owner)
     end
+
+    data_query = from u in User,
+                 where: u.username == ^username,
+                 select: %{:name => u.name, :password => u.password, :bio => u.bio, :location => u.location, :website => u.website, :birthday => u.birthday, :profile_picture => u.profile_picture, :banner => u.banner, :theme_color => u.theme_color, :settings => u.settings, :following => u.following, :followers => u.followers, :likes => u.likes, :lists => u.lists, :created_at => u.inserted_at}
+    data = Repo.all(data_query)
+    data = hd data
 
     status_query = from s in Status,
                    where: s.id == ^id and s.owner == ^owner,
                    select: s.content
 
     status_content = Repo.all(status_query)
-    if Enum.count(status_content) == 0 do
+    if Enum.count(status_content) == 0 || Enum.count(data) == 0 do
       conn
       |> put_layout(false)
       |> put_status(:not_found)
@@ -39,6 +43,7 @@ defmodule Social.StatusController do
       conn
       |> assign(:page_title, "#{name} on Social: #{status_content}")
       |> assign(:username, username)
+      |> assign(:data, data)
       |> assign(:id, id)
       |> assign(:status_content, status_content)
       |> render("show_status.html")

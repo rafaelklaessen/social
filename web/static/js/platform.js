@@ -43,3 +43,12 @@ function setTweetRemainingChars(el) {
   }
   rightContainer.find('.char-count').text(remainingChars);
 }
+if ($('body').hasClass('user-page')) {
+  $(window).scroll(function() {
+    var scrollTop = $(this).scrollTop();
+    console.log(scrollTop)
+    $('#banner').css({
+      'transform': 'translateY(' + scrollTop / 8 + '%)'
+    });
+  });
+}

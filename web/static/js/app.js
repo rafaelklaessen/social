@@ -33,5 +33,6 @@ export function closeModal(modal) {
  * @param {string} notification content
  */
 export function notify(notification) {
-  alert(notification);
+  $('#notification-container').append('<section class="notification info-notification"><section class="content-container">' + notification + '</section></section>');
+  $('#notification-container .notification:last-child').slideDown(200).delay(10000).slideUp(200);
 }

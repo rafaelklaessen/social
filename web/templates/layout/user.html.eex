@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/platform.css") %>">
   </head>
 
-  <body>
+  <body id="user-page" class="user-page">
     <header id="header" class="header">
       <section class="container">
         <nav id="nav" class="nav">
@@ -78,15 +78,19 @@
         </section>
       </section>
     </header>
-    <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
-    <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+
+    <section id="notification-container" class="notification-container"></section>
 
     <section id="profile-data-top" class="profile-data-top">
       <figure id="banner" class="banner" style="background-image: url('<%= static_path(@conn, "/images/banner.jpg") %>')"></figure>
       <section class="profile-data-container">
         <figure id="profile-picture" class="profile-picture" style="background-image: url('<%= static_path(@conn, "/images/profile-picture.png") %>')"></figure>
-        <h1 id="name" class="name"><%= @data[:name] %></h1>
-        <h2 id="username" class="username">@<%= @username %></h2>
+        <h1 id="name" class="name">
+          <a href="<%= user_path(@conn, :show, @username) %>" class="profile-link"><%= @data[:name] %></a>
+        </h1>
+        <h2 id="username" class="username">
+          <a href="<%= user_path(@conn, :show, @username) %>" class="profile-link">@<%= @username %></a>
+        </h2>
         <section class="btn-container">
           <div id="follow-btn" class="btn blue-btn follow-btn">Follow</div>
           <div id="tweet-to-btn" class="btn grey-btn tweet-to-btn">Tweet to</div>
@@ -99,17 +103,23 @@
         <article id="stats-widget" class="stats-widget widget">
           <section class="content-container">
             <section class="following-col col">
-              <h4 class="title">Following</h4>
-              <h1 id="following-count" class="following-count count">2,493</h1>
+              <a href="<%= user_path(@conn, :show_following, @username) %>">
+                <h4 class="title">Following</h4>
+                <h1 id="following-count" class="following-count count">2,493</h1>
+              </a>
             </section>
             <section class="followers-col col">
-              <h4 class="title">Followers</h4>
-              <h1 id="followers-count" class="following-count count">2,460</h1>
+              <a href="<%= user_path(@conn, :show_followers, @username) %>">
+                <h4 class="title">Followers</h4>
+                <h1 id="followers-count" class="following-count count">2,460</h1>
+              </a>
             </section>
             <section class="tweets-col col">
-              <h4 class="title">Tweets</h4>
-              <h1 id="tweets-count" class="following-count count">5,497</h1>
-            </section
+              <a href="<%= user_path(@conn, :show, @username) %>">
+                <h4 class="title">Tweets</h4>
+                <h1 id="tweets-count" class="following-count count">5,497</h1>
+              </a>
+            </section>
           </section>
         </article>
         <article id="profile-data-widget" class="profile-data-widget widget">
@@ -294,31 +304,31 @@
         <article id="tweet-nav-widget" class="tweet-nav-widget widget">
           <section class="content-container">
             <div id="tweet-nav-widget-tweets" class="tweet-nav-widgets-tweets current item">
-              <a href="<%= @username %>/" class="item-link">
+              <a href="<%= user_path(@conn, :show, @username) %>" class="item-link">
                 <h2 class="item-title">Tweets</h1>
               </a>
               <div class="bottom-line"></div>
             </div>
             <div id="tweet-nav-widget-tweets-and-replies" class="tweet-nav-widgets-tweets-and-replies item">
-              <a href="<%= @username %>/with_replies" class="item-link">
+              <a href="<%= user_path(@conn, :show_with_replies, @username) %>" class="item-link">
                 <h2 class="item-title">Tweets and replies</h2>
               </a>
               <div class="bottom-line"></div>
             </div>
             <div id="tweet-nav-widget-media" class="tweet-nav-widgets-media item">
-              <a href="<%= @username %>/media" class="item-link">
+              <a href="<%= user_path(@conn, :show_media, @username) %>" class="item-link">
                 <h2 class="item-title">Media</h2>
               </a>
               <div class="bottom-line"></div>
             </div>
             <div id="tweet-nav-widget-likes" class="tweet-nav-widgets-likes item">
-              <a href="<%= @username %>/likes" class="item-link">
+              <a href="<%= user_path(@conn, :show_likes, @username) %>" class="item-link">
                 <h2 class="item-title">Likes</h2>
               </a>
               <div class="bottom-line"></div>
             </div>
             <div id="tweet-nav-widget-lists" class="tweet-nav-widgets-lists item">
-              <a href="<%= @username %>/lists" class="item-link">
+              <a href="<%= list_path(@conn, :index, @username) %>" class="item-link">
                 <h2 class="item-title">Lists</h2>
               </a>
               <div class="bottom-line"></div>

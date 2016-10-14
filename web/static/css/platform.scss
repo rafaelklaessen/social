@@ -292,6 +292,11 @@ $headerHeightMinusTen: 55px;
   color: rgba(255, 255, 255, 0.7);
   font-size: 24px;
 }
+#profile-data-top .profile-data-container .name .profile-link,
+#profile-data-top .profile-data-container .username .profile-link {
+  color: inherit;
+  text-decoration: inherit;
+}
 #profile-data-top .profile-data-container .btn-container .btn {
   width: 175px;
 }
@@ -300,6 +305,18 @@ $headerHeightMinusTen: 55px;
 }
 #profile-data-top .profile-data-container .btn-container .tweet-to-btn {
   margin-left: 15px;
+}
+#user-page #main {
+  left: 0;
+  transform: none;
+  margin-top: 25px;
+  padding: {
+    top: 40px;
+    left: calc((100% - 1200px) / 2);
+    right: calc((100% - 1200px) / 2);
+  }
+  width: 100%;
+  background-color: $mainColor;
 }
 #main .left-col .stats-widget .content-container .col {
   float: left;
@@ -314,6 +331,10 @@ $headerHeightMinusTen: 55px;
   * {
     line-height: 1;
   }
+}
+#main .left-col .stats-widget .content-container .col a {
+  color: inherit;
+  text-decoration: inherit;
 }
 #main .left-col .stats-widget .content-container .col .title {
   margin-bottom: 10px;

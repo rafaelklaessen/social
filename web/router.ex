@@ -44,6 +44,8 @@ defmodule Social.Router do
 
   # Status
   scope "/users", Social do
+    pipe_through :browser
+
     get "/:username/status/:id", StatusController, :show
     post "/status/new", StatusController, :create
   end
