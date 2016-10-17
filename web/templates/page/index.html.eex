@@ -28,6 +28,7 @@
         <input id="password-input" class="input password-input" name="password" type="password">
         <div class="input-error password-input-error"></div> 
       </div>
+      <input id="register-btn" class="register-btn blue-btn submit-btn" type="submit" value="Register">
     </form>
   </section>
 </section>

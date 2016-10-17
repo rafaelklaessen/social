@@ -21,10 +21,16 @@ $mainBoxShadow: 8px 0 30px 10px rgba(0, 0, 0, 0.14);
   -webkit-transition: $transition;
   -ms-transition: $transition;
 }
-#bg {
+.slider {
   position: fixed;
   top: 0;
   left: 0;
+  width: 10000000000000000000000000000000px;
+  height: 100vh;
+  @include transition(all .2s ease-in-out);
+}
+.slider .slide {
+  float: left;
   width: 100vw;
   height: 100vh;
   background-position: center center;
@@ -49,13 +55,17 @@ $mainBoxShadow: 8px 0 30px 10px rgba(0, 0, 0, 0.14);
     background-color: $mainColorHover;
   }
 }
+#main {
+  margin-top: 165px;
+}
 #main .hero-container {
-  margin-top: 100px;
-  margin-left: 100px;
   color: #FFFFFF;
   display: inline-block;
 }
 #main .hero-container .hero-title {
+  margin-bottom: 12px;
+  line-height: 1;
+  color: inherit;
   font-size: 48px;
 }
 #main .hero-container .hero-subtitle {
@@ -63,11 +73,15 @@ $mainBoxShadow: 8px 0 30px 10px rgba(0, 0, 0, 0.14);
 }
 #main .register-form-container {
   float: right;
-  margin-top: 100px;
-  margin-right: 100px;
 }
-#main .register-form-container .register-form .form-group .input {
+#main .register-form-container .content-container  {
+  display: block;
+}
+#main .register-form-container .content-container .register-form .form-group .input {
   width: 350px;
+}
+#main .register-form-container .content-container .register-form .register-btn {
+  width: 100%;
 }
 #login .modal {
   width: 390px;

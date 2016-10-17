@@ -12,7 +12,12 @@
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/home.css") %>">
   </head>
   <body>
-    <section id="bg" class="bg" style="background-image: url('<%= static_path(@conn, "/images/bg/default-bg.jpg") %>')"></section>
+    <section class="slider">
+      <section id="slide-1" class="slide-1 slide" style="background-image: url('<%= static_path(@conn, "/images/bg/home-slider/slide-1.jpg") %>')"></section>
+      <section id="slide-2" class="slide-2 slide" style="background-image: url('<%= static_path(@conn, "/images/bg/home-slider/slide-2.jpg") %>')"></section>
+      <section id="slide-3" class="slide-3 slide" style="background-image: url('<%= static_path(@conn, "/images/bg/home-slider/slide-3.jpg") %>')"></section>
+      <section id="slide-4" class="slide-4 slide" style="background-image: url('<%= static_path(@conn, "/images/bg/home-slider/slide-4.jpg") %>')"></section>      
+    </section>
     <header id="header" class="header">
       <section class="container">
         <figure id="logo" class="logo">
