@@ -52,3 +52,23 @@ if ($('body').hasClass('user-page')) {
     });
   });
 }
+// Fix the size of the media items
+function fixMediaItemSize() {
+  $('.tweet .tweet-content-container .media-item').each(function() {
+    $(this).height($(this).width() / 3 * 2);
+  });
+}
+fixMediaItemSize();
+$(window).resize(function() {
+  fixMediaItemSize();
+});
+$(function() {
+  var $window = $(window),
+      wWidth = $window.width();
+  setInterval(function() {
+    if (wWidth != $window.width()) {
+      wWidth = $window.width();
+      fixMediaItemSize();
+    }
+  }, 300)
+});

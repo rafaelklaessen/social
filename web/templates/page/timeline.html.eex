@@ -1,1 +1,263 @@
-<h1>Timeline</h1>
+<section class="left-col">
+  <article id="profile-widget" class="profile-widget widget">
+    <section class="content-container">
+      <a href="<%= user_path(@conn, :show, "ra_ca02") %>">
+        <section class="simple-profile-container">
+          <figure class="banner" style="background-image: url('<%= static_path(@conn, "/images/banner.jpg") %>')"></figure>
+          <figure class="profile-picture" style="background-image: url('<%= static_path(@conn, "/images/profile-picture.png") %>')"></figure>
+          <div class="name-container">
+            <h2 class="name">Rafael K</h2>
+            <h2 class="username">@ra_ca02</h2>
+          </div>
+        </section>
+      </a>
+      <section class="stats-container">
+        <section class="following-col col">
+          <a href="<%= user_path(@conn, :show_following, "ra_ca02") %>">
+            <h4 class="title">Following</h4>
+            <h1 id="following-count" class="following-count count">2,493</h1>
+          </a>
+        </section>
+        <section class="followers-col col">
+          <a href="<%= user_path(@conn, :show_followers, "ra_ca02") %>">
+            <h4 class="title">Followers</h4>
+            <h1 id="followers-count" class="following-count count">2,460</h1>
+          </a>
+        </section>
+        <section class="tweets-col col">
+          <a href="<%= user_path(@conn, :show, "ra_ca02") %>">
+            <h4 class="title">Tweets</h4>
+            <h1 id="tweets-count" class="following-count count">5,497</h1>
+          </a>
+        </section>
+      </section>
+    </section>
+  </article>
+  <article id="trends-widget" class="trends-widget widget">
+    <header class="title-container">
+      <h1 class="title">Trends</h1>
+    </header>
+    <section class="content-container">
+      <ul class="trend-container">
+        <li class="trend-item">
+          <h4 class="trend-name"><a href="">Waddingxveen</a></h4>
+        </li>
+        <li class="trend-item">
+          <h4 class="trend-name"><a href="">#brw16</a></h4>
+        </li>
+        <li class="trend-item">
+          <h4 class="trend-name"><a href="">#innovatiefestival</a></h4>
+        </li>
+        <li class="trend-item">
+          <h4 class="trend-name"><a href="">#sportsinteractiveeurope16</a></h4>
+        </li>
+        <li class="trend-item">
+          <h4 class="trend-name"><a href="">Myanmar</a></h4>
+          <span class="trend-stats">5,330 Tweets</span>
+        </li>
+        <li class="trend-item">
+          <h4 class="trend-name"><a href="">#communicatieoverheid</a></h4>
+        </li>
+        <li class="trend-item">
+          <h4 class="trend-name"><a href="">#erfgoeddag</a></h4>
+        </li>
+        <li class="trend-item">
+          <h4 class="trend-name"><a href="">Oasis</a></h4>
+          <span class="trend-stats">13.9K Tweets</span>
+        </li>
+        <li class="trend-item">
+          <h4 class="trend-name"><a href="">Hoek van Holland</a></h4>
+        </li>
+        <li class="trend-item">
+          <h4 class="trend-name"><a href="">Griekse</a></h4>
+        </li>
+      </ul>
+    </section>
+  </article>
+  <article id="copyright-widget" class="copyright-widget widget">
+    <section class="content-container">
+      <h4 class="copyright-title">&copy; Social</h4>
+      <div class="copyright-text">
+        All rights reserved. Please keep in mind that this is a fake copyright text, as it's an <a href="https://www.github.com/rafaelklaessen/social" target="_blank">Open source Twitter clone</a>.
+      </div>
+    </section>
+  </article>
+</section>
+<section class="right-col">
+  <article id="tweet-2" class="tweet-2 tweet" data-author="jan" data-tweetId="2">
+    <header class="tweet-author">
+      <a href="<%= user_path(@conn, :show, "jan") %>">
+        <figure class="profile-picture" style="background-image: url('<%= static_path(@conn, "/images/profile-picture.png") %>')"></figure>
+        <div class="name-container">
+          <h2 class="name">kees</h2>
+          <h2 class="username">@jan</h2>
+        </div>
+        <div class="timestamp-container">
+          <time class="timestamp">Sep 17 15:04</time>
+        </div>
+      </a>
+    </header>
+    <section class="tweet-content-container">
+      Vandaag weer kaas gemaakt x) Kees is cool :D Vandaag weer kaas gemaakt x) Kees is cool :D
+    </section>
+    <footer class="tweet-actions">
+      <ul class="tweet-action-container">
+        <li class="reply-btn btn tweet-action">
+          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Reply icon"></span>
+        </li>
+        <li class="retweet-btn btn tweet-action">
+          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Reply icon"></span>
+          <span class="retweet-count action-count">959K</span>          
+        </li>
+        <li class="like-btn btn tweet-action">
+          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Reply icon"></span>
+          <span class="like-count action-count">16</span>
+        </li>
+        <li class="more-btn btn tweet-action">
+          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Reply icon"></span>
+        </li>
+      </ul>
+    </footer>
+  </article>
+  <article id="tweet-2" class="tweet-2 tweet" data-author="jan" data-tweetId="2">
+    <header class="tweet-author">
+      <a href="<%= user_path(@conn, :show, "jan") %>">
+        <figure class="profile-picture" style="background-image: url('<%= static_path(@conn, "/images/profile-picture.png") %>')"></figure>
+        <div class="name-container">
+          <h2 class="name">kees</h2>
+          <h2 class="username">@jan</h2>
+        </div>
+        <div class="timestamp-container">
+          <time class="timestamp">Sep 17 15:04</time>
+        </div>
+      </a>
+    </header>
+    <section class="tweet-content-container">
+      Vandaag weer kaas gemaakt x) Kees is cool :D Vandaag weer <a href="http://www.kaas.nu" target="_blank">kaas</a> gemaakt x) Kees is cool :D
+      <figure class="media-item" style="background-image: url('<%= static_path(@conn, "/images/media/car.jpg") %>')"></figure>
+    </section>
+    <footer class="tweet-actions">
+      <ul class="tweet-action-container">
+        <li class="reply-btn btn tweet-action">
+          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Reply icon"></span>
+        </li>
+        <li class="retweet-btn btn tweet-action">
+          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Reply icon"></span>
+          <span class="retweet-count action-count">959K</span>          
+        </li>
+        <li class="like-btn btn tweet-action">
+          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Reply icon"></span>
+          <span class="like-count action-count">16</span>
+        </li>
+        <li class="more-btn btn tweet-action">
+          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Reply icon"></span>
+        </li>
+      </ul>
+    </footer>
+  </article>
+  <article id="tweet-2" class="tweet-2 tweet" data-author="jan" data-tweetId="2">
+    <header class="tweet-author">
+      <a href="<%= user_path(@conn, :show, "jan") %>">
+        <figure class="profile-picture" style="background-image: url('<%= static_path(@conn, "/images/profile-picture.png") %>')"></figure>
+        <div class="name-container">
+          <h2 class="name">kees</h2>
+          <h2 class="username">@jan</h2>
+        </div>
+        <div class="timestamp-container">
+          <time class="timestamp">Sep 17 15:04</time>
+        </div>
+      </a>
+    </header>
+    <section class="tweet-content-container">
+      Vandaag weer kaas gemaakt x) Kees is cool :D Vandaag weer kaas gemaakt x) Kees is cool :D
+    </section>
+    <footer class="tweet-actions">
+      <ul class="tweet-action-container">
+        <li class="reply-btn btn tweet-action">
+          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Reply icon"></span>
+        </li>
+        <li class="retweet-btn btn tweet-action">
+          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Reply icon"></span>
+          <span class="retweet-count action-count">959K</span>          
+        </li>
+        <li class="like-btn btn tweet-action">
+          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Reply icon"></span>
+          <span class="like-count action-count">16</span>
+        </li>
+        <li class="more-btn btn tweet-action">
+          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Reply icon"></span>
+        </li>
+      </ul>
+    </footer>
+  </article>
+  <article id="tweet-2" class="tweet-2 tweet" data-author="jan" data-tweetId="2">
+    <header class="tweet-author">
+      <a href="<%= user_path(@conn, :show, "jan") %>">
+        <figure class="profile-picture" style="background-image: url('<%= static_path(@conn, "/images/profile-picture.png") %>')"></figure>
+        <div class="name-container">
+          <h2 class="name">kees</h2>
+          <h2 class="username">@jan</h2>
+        </div>
+        <div class="timestamp-container">
+          <time class="timestamp">Sep 17 15:04</time>
+        </div>
+      </a>
+    </header>
+    <section class="tweet-content-container">
+      Vandaag weer kaas gemaakt x) Kees is cool :D Vandaag weer kaas gemaakt x) Kees is cool :D
+    </section>
+    <footer class="tweet-actions">
+      <ul class="tweet-action-container">
+        <li class="reply-btn btn tweet-action">
+          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Reply icon"></span>
+        </li>
+        <li class="retweet-btn btn tweet-action">
+          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Reply icon"></span>
+          <span class="retweet-count action-count">959K</span>          
+        </li>
+        <li class="like-btn btn tweet-action">
+          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Reply icon"></span>
+          <span class="like-count action-count">16</span>
+        </li>
+        <li class="more-btn btn tweet-action">
+          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Reply icon"></span>
+        </li>
+      </ul>
+    </footer>
+  </article>
+  <article id="tweet-2" class="tweet-2 tweet" data-author="jan" data-tweetId="2">
+    <header class="tweet-author">
+      <a href="<%= user_path(@conn, :show, "jan") %>">
+        <figure class="profile-picture" style="background-image: url('<%= static_path(@conn, "/images/profile-picture.png") %>')"></figure>
+        <div class="name-container">
+          <h2 class="name">kees</h2>
+          <h2 class="username">@jan</h2>
+        </div>
+        <div class="timestamp-container">
+          <time class="timestamp">Sep 17 15:04</time>
+        </div>
+      </a>
+    </header>
+    <section class="tweet-content-container">
+      Vandaag weer kaas gemaakt x) Kees is cool :D Vandaag weer kaas gemaakt x) Kees is cool :D
+    </section>
+    <footer class="tweet-actions">
+      <ul class="tweet-action-container">
+        <li class="reply-btn btn tweet-action">
+          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Reply icon"></span>
+        </li>
+        <li class="retweet-btn btn tweet-action">
+          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Reply icon"></span>
+          <span class="retweet-count action-count">959K</span>          
+        </li>
+        <li class="like-btn btn tweet-action">
+          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Reply icon"></span>
+          <span class="like-count action-count">16</span>
+        </li>
+        <li class="more-btn btn tweet-action">
+          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Reply icon"></span>
+        </li>
+      </ul>
+    </footer>
+  </article>
+</section>

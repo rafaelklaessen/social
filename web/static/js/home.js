@@ -12,7 +12,7 @@ function slide() {
       nextSlide = currentSlide + 1,
       lastSlide = slider.find(':last-child').attr('id').replace('slide-', '');
   if (currentSlide < lastSlide) {
-    slider.css({'left': currentSlide * -100 + 'vw'});
+    slider.css({'left': Math.round(currentSlide) * -100 + 'vw'});
   } else {
     slider.css({'left': '0'});
   }

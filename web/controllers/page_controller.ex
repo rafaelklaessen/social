@@ -2,7 +2,7 @@ defmodule Social.PageController do
   use Social.Web, :controller
 
   def index(conn, _params) do
-    logged_in = false
+    logged_in = true
     if logged_in do
       conn
       |> assign(:page_title, "Social")

@@ -21,6 +21,12 @@ $mainBoxShadow: 8px 0 30px 10px rgba(0, 0, 0, 0.14);
   -webkit-transition: $transition;
   -ms-transition: $transition;
 }
+// Mixin for default background 
+@mixin background() {
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 $headerHeight: 65px;
 $headerHeightMinusTen: 55px;
 #header .container #nav {
@@ -106,9 +112,7 @@ $headerHeightMinusTen: 55px;
 #header .container #actions .actions-item-container .profile-actions .profile-picture {
   width: $headerHeightMinusTen;
   height: $headerHeightMinusTen;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  @include background();
   border-radius: 100%;
   cursor: pointer;
 }
@@ -261,9 +265,7 @@ $headerHeightMinusTen: 55px;
   position: absolute;
   width: 100%;
   height: 100%;
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  @include background();
   z-index: -1;
 }
 #profile-data-top .profile-data-container {
@@ -274,9 +276,7 @@ $headerHeightMinusTen: 55px;
   margin: 0 auto 25px auto;
   width: 150px;
   height: 150px;
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  @include background();
   border-radius: 100%;
 }
 #profile-data-top .profile-data-container .name,
@@ -310,15 +310,13 @@ $headerHeightMinusTen: 55px;
   left: 0;
   transform: none;
   margin-top: 25px;
-  padding: {
-    top: 40px;
-    left: calc((100% - 1200px) / 2);
-    right: calc((100% - 1200px) / 2);
-  }
+  padding-left: calc((100% - 1200px) / 2);
+  padding-right: calc((100% - 1200px) / 2);
   width: 100%;
   background-color: $mainColor;
 }
-#main .left-col .stats-widget .content-container .col {
+#main .left-col .stats-widget .content-container .col,
+#main .left-col .profile-widget .content-container .stats-container .col {
   float: left;
   text-align: center;
   width: 33%;
@@ -332,15 +330,76 @@ $headerHeightMinusTen: 55px;
     line-height: 1;
   }
 }
-#main .left-col .stats-widget .content-container .col a {
+#main .left-col .stats-widget .content-container .col a,
+#main .left-col .profile-widget .content-container .stats-container .col a {
   color: inherit;
   text-decoration: inherit;
 }
-#main .left-col .stats-widget .content-container .col .title {
+#main .left-col .stats-widget .content-container .col .title,
+#main .left-col .profile-widget .content-container .stats-container .col .title {
   margin-bottom: 10px;
 }
-#main .left-col .profile-data-widget .title-container {
-  padding-bottom: 10px;
+#main .left-col .profile-widget .content-container .simple-profile-container {
+  position: relative;
+  margin: -20px;
+  margin-bottom: 20px;
+  padding: 20px;
+  padding-bottom: 0;
+  width: calc(100% + 40px);
+  height: 157px;
+}
+#main .left-col .profile-widget .content-container .simple-profile-container .banner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  @include background();
+}
+#main .left-col .profile-widget .content-container .simple-profile-container .profile-picture {
+  position: relative;
+  margin: 0 auto 20px auto;
+  width: 75px;
+  height: 75px;
+  z-index: 1;
+}
+#main .left-col .profile-widget .content-container .simple-profile-container .name-container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  line-height: 1;
+  color: #FFFFFF;
+  z-index: 1;
+
+  * {
+    line-height: 1;
+  }
+}
+#main .left-col .profile-widget .content-container .simple-profile-container .name-container .name,
+#main .left-col .profile-widget .content-container .simple-profile-container .name-container .username {
+  float: left;
+}
+#main .left-col .profile-widget .content-container .simple-profile-container .name-container .name {
+  margin-right: 10px;
+  color: inherit;
+}
+#main .left-col .profile-widget .content-container .simple-profile-container .name-container .username {
+  color: rgba(255, 255, 255, 0.7);
+}
+#main .left-col .trends-widget .content-container .trend-container {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#main .left-col .trends-widget .content-container .trend-container .trend-item .trend-name:not(:last-child) {
+  margin-bottom: -4px;
+}
+#main .left-col .copyright-widget .content-container .copyright-title {
+  color: #000000;
+}
+#main .left-col .profile-data-widget .title-container .title .profile-data-name,
+#main .left-col .profile-data-widget .title-container .title .profile-data-username {
+  line-height: 1;
 }
 #main .left-col .profile-data-widget .title-container .title .profile-data-name {
   font-weight: 400;
@@ -355,12 +414,16 @@ $headerHeightMinusTen: 55px;
   margin-right: 5px;
   width: auto;
   height: 20px;
-  vertical-align: middle;
+  vertical-align: sub;
   display: inline-block;
 }
 #main .left-col .profile-data-widget .content-container .profile-data-item .icon img {
   width: auto;
   height: 100%;
+}
+#main .left-col .followers-you-know-widget .title-container,
+#main .left-col .media-widget .title-container {
+  padding-bottom: 20px;
 }
 #main .left-col .followers-you-know-widget .content-container .row {
   margin-bottom: 20px;
@@ -426,9 +489,7 @@ $headerHeightMinusTen: 55px;
 #main .left-col .media-widget .content-container .row .item .item-link .fakeimg {
   width: 89px;
   height: 89px;
-  background-position: center center;;
-  background-size: cover;
-  background-repeat: no-repeat;
+  @include background();
 }
 #main .right-col .tweet-nav-widget {
   overflow: hidden;
@@ -482,4 +543,79 @@ $headerHeightMinusTen: 55px;
   height: 3px;
   background-color: $mainColor;
   @include transition(all .2s ease-in-out);
+}
+#main .right-col .tweet .tweet-author {
+  margin-bottom: 16px;
+}
+#main .right-col .tweet .tweet-author a {
+  color: inherit;
+  display: inline-block;
+}
+#main .right-col .tweet .tweet-author .profile-picture {
+  margin-right: 20px;
+  float: left;
+  width: 65px;
+  height: 65px;
+  @include background();
+}
+#main .right-col .tweet .tweet-author .name-container {
+  margin-top: 8px;
+  line-height: 1;
+  display: inline-block;
+}
+#main .right-col .tweet .tweet-author .name-container .name,
+#main .right-col .tweet .tweet-author .name-container .username {
+  float: left;
+  line-height: 1;
+}
+#main .right-col .tweet .tweet-author .name-container .name {
+  margin-right: 10px;
+  font-weight: 400;
+}
+#main .right-col .tweet .tweet-author .name-container .username {
+  color: $mainGreyColor;
+}
+#main .right-col .tweet .tweet-content-container {
+  margin: {
+    bottom: 20px;
+    left: 85px;
+  }
+}
+#main .right-col .tweet .tweet-content-container .media-item {
+  margin-top: 20px;
+  width: 100%;
+  cursor: pointer;
+  @include background();
+}
+#main .right-col .tweet .tweet-actions {
+  float: right;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#main .right-col .tweet .tweet-actions .tweet-action-container {
+  margin: 0;
+  margin-right: -10px;
+  padding: 0;
+  list-style: none;
+}
+#main .right-col .tweet .tweet-actions .tweet-action-container .tweet-action {
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+
+  * {
+    line-height: 1;
+    display: inline-block;
+  }
+}
+#main .right-col .tweet .tweet-actions .tweet-action-container .tweet-action .icon {
+  margin-right: 5px;
+  height: 20px;
+  vertical-align: sub;
+  display: inline-block;
+}
+#main .right-col .tweet .tweet-actions .tweet-action-container .tweet-action .icon img {
+  width: auto;
+  height: 100%;
 }

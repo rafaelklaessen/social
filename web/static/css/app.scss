@@ -168,7 +168,8 @@ button.grey-btn {
   z-index: 1000;
 }
 .widget,
-.modal {
+.modal,
+.tweet {
   padding: 20px;
   line-height: 1;
   background-color: #FFFFFF;
@@ -178,8 +179,12 @@ button.grey-btn {
     line-height: 1.5;
   }
 }
-.widget {
+.widget,
+.tweet {
   margin-bottom: 40px;
+}
+.tweet {
+  overflow: auto;
 }
 .modal {
   position: absolute;
@@ -206,10 +211,13 @@ button.grey-btn {
     padding-bottom: 0;
   }
 }
+.widget .title-container {
+  padding-bottom: 10px;
+}
 .widget .title-container .title,
 .modal .title-container .title {
   width: 100%;
-  line-height: 0;
+  line-height: 1;
   color: #000000;
   font-size: 22px;
   font-weight: 300;
@@ -311,6 +319,7 @@ $headerHeightMinusTen: 55px;
   left: 50%;
   transform: translateX(-50%);
   margin-top: 65px;
+  padding-top: 40px;
   width: 1200px;
 }
 #main .left-col {
