@@ -174,6 +174,7 @@ button.grey-btn {
   line-height: 1;
   background-color: #FFFFFF;
   box-shadow: $mainBoxShadow;
+  overflow: hidden;
 
   * {
     line-height: 1.5;
@@ -184,7 +185,7 @@ button.grey-btn {
   margin-bottom: 40px;
 }
 .tweet {
-  overflow: auto;
+  overflow: initial;
 }
 .modal {
   position: absolute;
@@ -214,6 +215,9 @@ button.grey-btn {
 .widget .title-container {
   padding-bottom: 10px;
 }
+.modal .title-container {
+  text-align: center;
+}
 .widget .title-container .title,
 .modal .title-container .title {
   width: 100%;
@@ -241,9 +245,6 @@ button.grey-btn {
   width: 100%;
   line-height: 1;
   display: inline-block;
-}
-.modal .content-container {
-  padding-top: 20px;
 }
 .widget .content-container *,
 .modal .content-container * {

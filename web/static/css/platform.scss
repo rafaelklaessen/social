@@ -180,9 +180,6 @@ $headerHeightMinusTen: 55px;
 #new-tweet {
   color: $mainGreyColor;
 }
-#new-tweet .modal .title-container .title {
-  text-align: center;
-}
 #new-tweet .modal .content-container .compose-field {
   padding: 16px 20px;
   width: 100%;
@@ -544,6 +541,13 @@ $headerHeightMinusTen: 55px;
   background-color: $mainColor;
   @include transition(all .2s ease-in-out);
 }
+#main .right-col .tweet {
+  text-align: right;
+}
+#main .right-col .tweet .tweet-author,
+#main .right-col .tweet .tweet-content-container {
+  text-align: left;
+}
 #main .right-col .tweet .tweet-author {
   margin-bottom: 16px;
 }
@@ -588,10 +592,14 @@ $headerHeightMinusTen: 55px;
   @include background();
 }
 #main .right-col .tweet .tweet-actions {
-  float: right;
   margin: 0;
   padding: 0;
   list-style: none;
+  display: inline-block;
+
+  * {
+    text-align: left;
+  }
 }
 #main .right-col .tweet .tweet-actions .tweet-action-container {
   margin: 0;
@@ -600,6 +608,7 @@ $headerHeightMinusTen: 55px;
   list-style: none;
 }
 #main .right-col .tweet .tweet-actions .tweet-action-container .tweet-action {
+  position: relative;
   float: left;
   margin-left: 10px;
   margin-right: 10px;
@@ -618,4 +627,38 @@ $headerHeightMinusTen: 55px;
 #main .right-col .tweet .tweet-actions .tweet-action-container .tweet-action .icon img {
   width: auto;
   height: 100%;
+}
+#main .right-col .tweet .tweet-actions .tweet-action-container .more-btn .more-dropdown {
+  position: absolute;
+  top: 34px;
+  left: 10px;
+  margin: 0;
+  padding: 20px;
+  width: 200px;
+  line-height: 1.5;
+  background-color: #FFFFFF;
+  box-shadow: $mainBoxShadow;
+  display: none;
+
+  * {
+    line-height: 1.5;
+  }
+}
+#main .right-col .tweet .tweet-actions .tweet-action-container .tweet-action.more-btn .more-dropdown .more-dropdown-item {
+  color: $mainColor;
+  @include transition(all .2s ease-in-out);
+
+  &:hover {
+    color: $mainColorHover;
+  }
+}
+.media-item-modal-overlay .media-item-modal .content-container .media-item-fullmodal {
+  margin: {
+    top: 0;
+    bottom: -22px;
+    left: -20px;
+    right: -20px;
+  }
+  width: calc(100% + 40px);
+  height: auto;
 }

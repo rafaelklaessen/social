@@ -102,19 +102,26 @@
     </section>
     <footer class="tweet-actions">
       <ul class="tweet-action-container">
+        <li class="view-tweet-btn btn tweet-action">
+          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="View Tweet icon" title="View"></span>
+        </li>
         <li class="reply-btn btn tweet-action">
-          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Reply icon"></span>
+          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Reply icon" title="Reply"></span>
         </li>
         <li class="retweet-btn btn tweet-action">
-          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Reply icon"></span>
+          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Retweet icon" title="Retweet"></span>
           <span class="retweet-count action-count">959K</span>          
         </li>
         <li class="like-btn btn tweet-action">
-          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Reply icon"></span>
+          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Like icon" title="Like"></span>
           <span class="like-count action-count">16</span>
         </li>
         <li class="more-btn btn tweet-action">
-          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Reply icon"></span>
+          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="More" title="More"></span>
+          <ul class="more-dropdown">
+            <li class="delete-tweet more-dropdown-item">Copy link to Tweet</li>          
+            <li class="delete-tweet more-dropdown-item">Delete Tweet</li>
+          </ul>
         </li>
       </ul>
     </footer>
@@ -138,19 +145,26 @@
     </section>
     <footer class="tweet-actions">
       <ul class="tweet-action-container">
+        <li class="view-tweet-btn btn tweet-action">
+          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="View Tweet icon" title="View"></span>
+        </li>
         <li class="reply-btn btn tweet-action">
-          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Reply icon"></span>
+          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Reply icon" title="Reply"></span>
         </li>
         <li class="retweet-btn btn tweet-action">
-          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Reply icon"></span>
+          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Retweet icon" title="Retweet"></span>
           <span class="retweet-count action-count">959K</span>          
         </li>
         <li class="like-btn btn tweet-action">
-          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Reply icon"></span>
+          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Like icon" title="Like"></span>
           <span class="like-count action-count">16</span>
         </li>
         <li class="more-btn btn tweet-action">
-          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Reply icon"></span>
+          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="More" title="More"></span>
+          <ul class="more-dropdown">
+            <li class="delete-tweet more-dropdown-item">Copy link to Tweet</li>          
+            <li class="delete-tweet more-dropdown-item">Delete Tweet</li>
+          </ul>
         </li>
       </ul>
     </footer>
@@ -173,19 +187,26 @@
     </section>
     <footer class="tweet-actions">
       <ul class="tweet-action-container">
+        <li class="view-tweet-btn btn tweet-action">
+          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="View Tweet icon" title="View"></span>
+        </li>
         <li class="reply-btn btn tweet-action">
-          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Reply icon"></span>
+          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Reply icon" title="Reply"></span>
         </li>
         <li class="retweet-btn btn tweet-action">
-          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Reply icon"></span>
+          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Retweet icon" title="Retweet"></span>
           <span class="retweet-count action-count">959K</span>          
         </li>
         <li class="like-btn btn tweet-action">
-          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Reply icon"></span>
+          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Like icon" title="Like"></span>
           <span class="like-count action-count">16</span>
         </li>
         <li class="more-btn btn tweet-action">
-          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Reply icon"></span>
+          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="More" title="More"></span>
+          <ul class="more-dropdown">
+            <li class="delete-tweet more-dropdown-item">Copy link to Tweet</li>          
+            <li class="delete-tweet more-dropdown-item">Delete Tweet</li>
+          </ul>
         </li>
       </ul>
     </footer>
@@ -208,19 +229,26 @@
     </section>
     <footer class="tweet-actions">
       <ul class="tweet-action-container">
+        <li class="view-tweet-btn btn tweet-action">
+          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="View Tweet icon" title="View"></span>
+        </li>
         <li class="reply-btn btn tweet-action">
-          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Reply icon"></span>
+          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Reply icon" title="Reply"></span>
         </li>
         <li class="retweet-btn btn tweet-action">
-          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Reply icon"></span>
+          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Retweet icon" title="Retweet"></span>
           <span class="retweet-count action-count">959K</span>          
         </li>
         <li class="like-btn btn tweet-action">
-          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Reply icon"></span>
+          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Like icon" title="Like"></span>
           <span class="like-count action-count">16</span>
         </li>
         <li class="more-btn btn tweet-action">
-          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Reply icon"></span>
+          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="More" title="More"></span>
+          <ul class="more-dropdown">
+            <li class="delete-tweet more-dropdown-item">Copy link to Tweet</li>          
+            <li class="delete-tweet more-dropdown-item">Delete Tweet</li>
+          </ul>
         </li>
       </ul>
     </footer>
@@ -243,21 +271,32 @@
     </section>
     <footer class="tweet-actions">
       <ul class="tweet-action-container">
+        <li class="view-tweet-btn btn tweet-action">
+          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="View Tweet icon" title="View"></span>
+        </li>
         <li class="reply-btn btn tweet-action">
-          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Reply icon"></span>
+          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Reply icon" title="Reply"></span>
         </li>
         <li class="retweet-btn btn tweet-action">
-          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Reply icon"></span>
+          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Retweet icon" title="Retweet"></span>
           <span class="retweet-count action-count">959K</span>          
         </li>
         <li class="like-btn btn tweet-action">
-          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Reply icon"></span>
+          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Like icon" title="Like"></span>
           <span class="like-count action-count">16</span>
         </li>
         <li class="more-btn btn tweet-action">
-          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Reply icon"></span>
+          <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="More" title="More"></span>
+          <ul class="more-dropdown">
+            <li class="delete-tweet more-dropdown-item">Copy link to Tweet</li>          
+            <li class="delete-tweet more-dropdown-item">Delete Tweet</li>
+          </ul>
         </li>
       </ul>
     </footer>
   </article>
 </section>
+<!-- Required variable for appending media modals (URL of the close icon is unknown in the JavaScript) -->
+<script type="text/javascript">
+  var closeBtnIconUrl = "<%= static_path(@conn, "/images/icons/close-icon.png") %>";
+</script>

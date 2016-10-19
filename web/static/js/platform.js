@@ -45,7 +45,7 @@ function setTweetRemainingChars(el) {
 }
 if ($('body').hasClass('user-page')) {
   $(window).scroll(function() {
-    var scrollTop = $(this).scrollTop();
+    let scrollTop = $(this).scrollTop();
     console.log(scrollTop)
     $('#banner').css({
       'transform': 'translateY(' + scrollTop / 8 + '%)'
@@ -63,7 +63,7 @@ $(window).resize(function() {
   fixMediaItemSize();
 });
 $(function() {
-  var $window = $(window),
+  let $window = $(window),
       wWidth = $window.width();
   setInterval(function() {
     if (wWidth != $window.width()) {
@@ -71,4 +71,42 @@ $(function() {
       fixMediaItemSize();
     }
   }, 300)
+});
+// Open URL of Tweet when it's clicked
+$('.tweet .tweet-actions .tweet-action-container .view-tweet-btn').click(function() {
+  let tweet = $(this).parents('.tweet'),
+      tweetAuthor = tweet.data('author'), 
+      tweetId = tweet.attr('id').replace('tweet-', ''),
+      url = `/users/${tweetAuthor}/status/${tweetId}`;
+  window.location.assign(url);
+});
+// Open media item when it's clicked
+$('.tweet .tweet-content-container .media-item').click(function() {
+  let img = $(this).css('background-image').replace('url("', '').replace('")', '');
+  $(`
+    <section class="media-item-modal-overlay overlay">
+      <section class="media-item-modal modal">
+        <header class="title-container">
+          <h1 class="title">Media</h1>
+          <div class="close-btn btn">
+            <img src="${closeBtnIconUrl}" alt="Close icon">
+          </div>
+        </header>
+        <section class="content-container">
+          <img class="media-item-fullmodal" src="${img}" alt="Media item">
+        </section>
+      </section>
+    </section>
+    `).appendTo('body').find('.close-btn').click(function() {
+      let modal = $(this).parents('.media-item-modal');
+      closeModal(modal);
+      setTimeout(function() {
+        $('body .overlay:last-child').remove();
+      }, 404);
+    });
+  openModal($('body :last-child').find('.media-item-modal'));
+});
+// Open more Tweet actions dropdown
+$('.tweet .tweet-actions .more-btn .icon').click(function() {
+  $(this).siblings('.more-dropdown').stop().toggle(200);
 });
