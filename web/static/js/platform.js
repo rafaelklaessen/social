@@ -54,7 +54,7 @@ if ($('body').hasClass('user-page')) {
 }
 // Fix the size of the media items
 function fixMediaItemSize() {
-  $('.tweet .tweet-content-container .media-item').each(function() {
+  $('.tweet .tweet-content-container .media-item, .notification .notification-tweet .tweet-content .media-item').each(function() {
     $(this).height($(this).width() / 3 * 2);
   });
 }
