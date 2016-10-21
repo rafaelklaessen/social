@@ -110,3 +110,38 @@ $('.tweet .tweet-content-container .media-item').click(function() {
 $('.tweet .tweet-actions .more-btn .icon').click(function() {
   $(this).siblings('.more-dropdown').stop().toggle(200);
 });
+// Shortcut for message container
+let messageContainer = $('#main #messages .messages-widget .message-container');
+// Fix message margin-right to compensate scrollBar
+function getBrowserScrollSize() {
+
+    var css = {
+        "border":  "none",
+        "height":  "200px",
+        "margin":  "0",
+        "padding": "0",
+        "width":   "200px"
+    };
+
+    var inner = $("<div>").css($.extend({}, css));
+    var outer = $("<div>").css($.extend({
+        "left":       "-1000px",
+        "overflow":   "scroll",
+        "position":   "absolute",
+        "top":        "-1000px"
+    }, css)).append(inner).appendTo("body")
+    .scrollLeft(1000)
+    .scrollTop(1000);
+
+    var scrollSize = {
+        "height": (outer.offset().top - inner.offset().top) || 0,
+        "width": (outer.offset().left - inner.offset().left) || 0
+    };
+
+    outer.remove();
+    return scrollSize;
+}
+// Set margin-right
+messageContainer.find('.your-message').css({'margin-right': -1 * getBrowserScrollSize().width + 'px'});
+// Automatically scroll down in message container so that you start at the latest message
+messageContainer.scrollTop(messageContainer.prop('scrollHeight'));

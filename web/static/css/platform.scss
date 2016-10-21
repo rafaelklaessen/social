@@ -358,7 +358,9 @@ $headerHeightMinusTen: 55px;
   margin: 0 auto 20px auto;
   width: 75px;
   height: 75px;
+  border-radius: 100%;
   z-index: 1;
+  @include background();
 }
 #main .left-col .profile-widget .content-container .simple-profile-container .name-container {
   position: absolute;
@@ -436,6 +438,8 @@ $headerHeightMinusTen: 55px;
   margin-right: 20px;
   width: 70px;
   height: 70px;
+  border-radius: 100%;
+  @include background();
 
   &:last-child {
     margin-right: 0;
@@ -560,6 +564,7 @@ $headerHeightMinusTen: 55px;
   float: left;
   width: 65px;
   height: 65px;
+  border-radius: 100%;
   @include background();
 }
 #main .right-col .tweet .tweet-author .name-container {
@@ -731,6 +736,118 @@ $headerHeightMinusTen: 55px;
 }
 #main #notifications .tweet.notification {
   margin-bottom: 0;
+}
+#main #messages {
+  position: relative;
+  min-height: calc(100vh - 145px);
+}
+#main #messages .messages-widget {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+#main #messages .messages-widget .title-container {
+  margin: -20px;
+  margin-bottom: 0;
+  padding: 20px;
+  width: calc(100% + 40px);
+  line-height: 1;
+  text-align: center;
+  background-color: #FFFFFF;
+  box-shadow: $mainBoxShadow;
+}
+#main #messages .messages-widget .title-container .user-name-container {
+  display: inline-block;
+}
+#main #messages .messages-widget .title-container .user-name-container .user-profile-picture {
+  float: left;
+  margin-right: 10px;
+  width: 35px;
+  height: 35px;
+  border-radius: 100%;
+  @include background();
+}
+#main #messages .messages-widget .title-container .user-name-container .user-name {
+  float: left;
+  width: auto;
+  line-height: 35px;
+  vertical-align: middle;
+}
+#main #messages .messages-widget .message-container {
+  margin: 0 -20px;
+  padding: 30px 40px 0 20px;
+  width: calc(100% + 60px);
+  height: calc(100% - 131px);
+  list-style: none;
+  overflow: auto;
+}
+#main #messages .messages-widget .message-container .message {
+  clear: both;
+  margin-bottom: 10px;
+}
+#main #messages .messages-widget .message-container .message .message-content {
+  float: left;
+  padding: 11px 15px;
+  background-color: $mainGreyColorLight;
+}
+#main #messages .messages-widget .message-container .message .timestamp {
+  clear: both;
+  display: block;
+}
+#main #messages .messages-widget .message-container .your-message {
+  float: right;
+}
+#main #messages .messages-widget .message-container .your-message .message-content {
+  color: #FFFFFF;
+  background-color: $mainColor;
+}
+#main #messages .messages-widget .message-container .your-message .timestamp {
+  float: right;
+}
+#main #messages .messages-widget .message-container .media-message {
+  padding: 0;
+  width: 50%;
+}
+#main #messages .messages-widget .message-container .media-message .media-item {
+  width: 100%;
+  height: auto;
+}
+#main #messages .messages-widget .message-form-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 20px;
+  width: 100%;
+  background-color: #FFFFFF;
+  box-shadow: $mainBoxShadow;
+}
+#main #messages .messages-widget .message-form-container .message-form .message-input,
+#main #messages .messages-widget .message-form-container .message-form .media-btn,
+#main #messages .messages-widget .message-form-container .message-form .send-message-btn {
+  margin-left: 3px;
+  margin-right: 3px;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+#main #messages .messages-widget .message-form-container .message-form .message-input {
+  padding: 14px;
+  width: calc(100% - 157px);
+  height: 44px;
+  line-height: 44px;
+}
+#main #messages .messages-widget .message-form-container .message-form .media-btn {
+  display: inline-block;
+}
+#main #messages .messages-widget .message-form-container .message-form .media-btn .icon {
+  width: auto;
+  height: 20px;
+  vertical-align: sub;
 }
 .media-item-modal-overlay .media-item-modal .content-container .media-item-fullmodal {
   margin: {

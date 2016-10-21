@@ -1,1 +1,109 @@
-<h1>Messages</h1>
+<section id="messages-user-list" class="messages-user-list left-col">
+  <article id="message-user-widget" class="message-user-widget widget">
+    <ul class="user-container">
+      <li class="user">
+        <figure class="profile-picture" style="background-image: url('<%= static_path(@conn, "/images/profile-picture2.png") %>');"></figure>
+        <div class="name-container">
+          <h4 class="name">Kees is COOL</h4>
+          <h4 class="username">@kees</h4>
+        </div>
+        <time class="timestamp">Oct 20</time>
+        <div class="last-message-container">
+          <span class="last-message">Heb jij de kaas gezien?</span>
+        </div>
+      </li>
+      <li class="user">
+        <figure class="profile-picture" style="background-image: url('<%= static_path(@conn, "/images/profile-picture2.png") %>');"></figure>
+        <div class="name-container">
+          <h4 class="name">Kees is COOL</h4>
+          <h4 class="username">@kees</h4>
+        </div>
+        <time class="timestamp">Oct 20</time>
+        <div class="last-message-container">
+          <span class="last-message">Heb jij de kaas gezien?</span>
+        </div>
+      </li>
+      <li class="user">
+        <figure class="profile-picture" style="background-image: url('<%= static_path(@conn, "/images/profile-picture2.png") %>');"></figure>
+        <div class="name-container">
+          <h4 class="name">Kees is COOL</h4>
+          <h4 class="username">@kees</h4>
+        </div>
+        <time class="timestamp">Oct 20</time>
+        <div class="last-message-container">
+          <span class="last-message">Heb jij de kaas gezien?</span>
+        </div>
+      </li>
+      <li class="user">
+        <figure class="profile-picture" style="background-image: url('<%= static_path(@conn, "/images/profile-picture2.png") %>');"></figure>
+        <div class="name-container">
+          <h4 class="name">Kees is COOL</h4>
+          <h4 class="username">@kees</h4>
+        </div>
+        <time class="timestamp">Oct 20</time>
+        <div class="last-message-container">
+          <span class="last-message">Heb jij de kaas gezien?</span>
+        </div>
+      </li>
+    </ul>
+  </article>
+</section>
+<section id="messages" class="messages right-col">
+  <article id="messages-widget" class="messages-widget widget">
+    <header class="title-container">
+      <section class="user-name-container">
+        <figure class="user-profile-picture" style="background-image: url('<%= static_path(@conn, "/images/profile-picture2.png") %>');" ></figure>
+        <h1 class="user-name title">Kees is COOL</h1>
+      </section>
+    </header>
+    <ul class="message-container">
+      <li class="message">
+        <div class="message-content">
+          Heb jij de kaas gezien?
+        </div>
+        <time class="timestamp">Oct 19</time>
+      </li>
+      <li class="your-message message">
+        <div class="message-content">
+          Nope helaas niet haha
+        </div>
+        <time class="timestamp">Oct 20</time>
+      </li>
+      <li class="message">
+        <div class="message-content">
+          Okey haha
+        </div>
+        <time class="timestamp">Oct 20</time>
+      </li>
+      <li class="media-message message">
+        <img class="media-item" src="<%= static_path(@conn, "/images/media/car.jpg") %>"alt="Media">
+        <time class="timestamp">Oct 21</time>
+      </li>
+      <li class="your-message message">
+        <div class="message-content">
+          Hier jong heb je m terug xd
+        </div>
+        <time class="timestamp">Oct 21</time>
+      </li>
+      <li class="message">
+        <div class="message-content">
+          Bruh
+        </div>
+        <time class="timestamp">Oct 21</time>
+      </li>
+      <li class="your-message media-message message">
+        <img class="media-item" src="<%= static_path(@conn, "/images/media/car.jpg") %>"alt="Media">
+        <time class="timestamp">Oct 21</time>
+      </li>
+    </ul>
+    <section class="message-form-container">
+      <form class="message-form form" method="post">
+        <input id="message-input" class="message-input input" type="text" placeholder="Send a message">
+        <span class="media-btn grey-btn btn">
+          <img class="icon" src="<%= static_path(@conn, "/images/icons/media-icon.png") %>" alt="Media icon">
+        </span>
+        <input id="send-message-btn" class="send-message-btn blue-btn btn" type="submit" value="Send">
+      </form>
+    </section>
+  </article>
+</section>
