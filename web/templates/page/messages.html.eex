@@ -2,7 +2,9 @@
   <article id="message-user-widget" class="message-user-widget widget">
     <ul class="user-container">
       <li class="user">
-        <figure class="profile-picture" style="background-image: url('<%= static_path(@conn, "/images/profile-picture2.png") %>');"></figure>
+        <a href="<%= user_path(@conn, :show, "kees") %>">
+            <figure class="profile-picture" style="background-image: url('<%= static_path(@conn, "/images/profile-picture2.png") %>');"></figure>
+        </a>
         <div class="name-container">
           <h4 class="name">Kees is COOL</h4>
           <h4 class="username">@kees</h4>
@@ -13,7 +15,9 @@
         </div>
       </li>
       <li class="user">
-        <figure class="profile-picture" style="background-image: url('<%= static_path(@conn, "/images/profile-picture2.png") %>');"></figure>
+        <a href="<%= user_path(@conn, :show, "kees") %>">
+            <figure class="profile-picture" style="background-image: url('<%= static_path(@conn, "/images/profile-picture2.png") %>');"></figure>
+        </a>
         <div class="name-container">
           <h4 class="name">Kees is COOL</h4>
           <h4 class="username">@kees</h4>
@@ -24,7 +28,9 @@
         </div>
       </li>
       <li class="user">
-        <figure class="profile-picture" style="background-image: url('<%= static_path(@conn, "/images/profile-picture2.png") %>');"></figure>
+        <a href="<%= user_path(@conn, :show, "kees") %>">
+            <figure class="profile-picture" style="background-image: url('<%= static_path(@conn, "/images/profile-picture2.png") %>');"></figure>
+        </a>
         <div class="name-container">
           <h4 class="name">Kees is COOL</h4>
           <h4 class="username">@kees</h4>
@@ -35,7 +41,9 @@
         </div>
       </li>
       <li class="user">
-        <figure class="profile-picture" style="background-image: url('<%= static_path(@conn, "/images/profile-picture2.png") %>');"></figure>
+        <a href="<%= user_path(@conn, :show, "kees") %>">
+            <figure class="profile-picture" style="background-image: url('<%= static_path(@conn, "/images/profile-picture2.png") %>');"></figure>
+        </a>
         <div class="name-container">
           <h4 class="name">Kees is COOL</h4>
           <h4 class="username">@kees</h4>
@@ -55,6 +63,7 @@
         <figure class="user-profile-picture" style="background-image: url('<%= static_path(@conn, "/images/profile-picture2.png") %>');" ></figure>
         <h1 class="user-name title">Kees is COOL</h1>
       </section>
+      <div id="new-message-btn" class="new-message-btn blue-btn btn">New message</div>
     </header>
     <ul class="message-container">
       <li class="message">
@@ -105,5 +114,87 @@
         <input id="send-message-btn" class="send-message-btn blue-btn btn" type="submit" value="Send">
       </form>
     </section>
+    <section id="new-message" class="new-message">
+      <header class="title-container">
+        <div id="new-message-back-btn" class="new-message-back-btn btn">
+          <img src="<%= static_path(@conn, "/images/icons/back-icon.png") %>" alt="Back icon">
+        </div>
+        <h1 class="title">New message</h1>
+      </header>
+      <section class="content-container">
+        <section class="send-message-to">
+          <h2 class="send-message-to-title">Send message to:</h2>
+          <input class="send-message-to-input input" type="text">
+        </section>
+        <section class="user-autofill">
+          <h2 class="user-autofill-title">People</h2>
+          <ul class="user-container">
+            <li class="user" data-user='{"name": "Kees is COOL", "username": "kees", "profilePictureUrl": "<%= static_path(@conn, "/images/profile-picture2.png") %>"}'>
+              <figure class="profile-picture" style="background-image: url('<%= static_path(@conn, "/images/profile-picture2.png") %>');"></figure>
+              <div class="name-container">
+                <h4 class="name">Kees is COOL</h4>
+                <h4 class="username">@kees</h4>
+              </div>
+            </li>
+            <li class="user" data-user='{"name": "Kees is COOL", "username": "kees", "profilePictureUrl": "<%= static_path(@conn, "/images/profile-picture2.png") %>"}'>
+              <figure class="profile-picture" style="background-image: url('<%= static_path(@conn, "/images/profile-picture2.png") %>');"></figure>
+              <div class="name-container">
+                <h4 class="name">Kees is COOL</h4>
+                <h4 class="username">@kees</h4>
+              </div>
+            </li>
+          </ul>
+        </section>
+      </section>
+    </section>
   </article>
+  <!-- When there are no messages yet: -->
+  <!--
+  <article id="messages-widget" class="messages-widget no-messages widget">
+    <header class="title-container">
+      <h1 class="title">Direct messages</h1>
+    </header>
+    <section class="content-container">
+      <h1 class="no-messages-title">Talk privately</h1>
+      <h4 class="no-messages-subtitle">You don't have any messages yet.</h4>
+      <div id="new-message-btn" class="new-message-btn blue-btn btn">Send a direct message</div>
+    </section>
+    <section id="new-message" class="new-message">
+      <header class="title-container">
+        <div id="new-message-back-btn" class="new-message-back-btn btn">
+          <img src="<%= static_path(@conn, "/images/icons/back-icon.png") %>" alt="Back icon">
+        </div>
+        <h1 class="title">New message</h1>
+      </header>
+      <section class="content-container">
+        <section class="send-message-to">
+          <h2 class="send-message-to-title">Send message to:</h2>
+          <input class="send-message-to-input input" type="text">
+        </section>
+        <section class="user-autofill">
+          <h2 class="user-autofill-title">People</h2>
+          <ul class="user-container">
+            <li class="user" data-user='{"name": "Kees is COOL", "username": "kees", "profilePictureUrl": "<%= static_path(@conn, "/images/profile-picture2.png") %>"}'>
+              <figure class="profile-picture" style="background-image: url('<%= static_path(@conn, "/images/profile-picture2.png") %>');"></figure>
+              <div class="name-container">
+                <h4 class="name">Kees is COOL</h4>
+                <h4 class="username">@kees</h4>
+              </div>
+            </li>
+            <li class="user" data-user='{"name": "Kees is COOL", "username": "kees", "profilePictureUrl": "<%= static_path(@conn, "/images/profile-picture2.png") %>"}'>
+              <figure class="profile-picture" style="background-image: url('<%= static_path(@conn, "/images/profile-picture2.png") %>');"></figure>
+              <div class="name-container">
+                <h4 class="name">Kees is COOL</h4>
+                <h4 class="username">@kees</h4>
+              </div>
+            </li>
+          </ul>
+        </section>
+      </section>
+    </section>
+  </article>-->
 </section>
+<!-- Required variable for appending media modals (URL of the close icon is unknown in the JavaScript) -->
+<script type="text/javascript">
+  var closeBtnIconUrl = "<%= static_path(@conn, "/images/icons/close-icon.png") %>";
+</script>

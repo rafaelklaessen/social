@@ -43,10 +43,10 @@ function setTweetRemainingChars(el) {
   }
   rightContainer.find('.char-count').text(remainingChars);
 }
+// Parallax on user banner
 if ($('body').hasClass('user-page')) {
   $(window).scroll(function() {
     let scrollTop = $(this).scrollTop();
-    console.log(scrollTop)
     $('#banner').css({
       'transform': 'translateY(' + scrollTop / 8 + '%)'
     });
@@ -81,8 +81,8 @@ $('.tweet .tweet-actions .tweet-action-container .view-tweet-btn').click(functio
   window.location.assign(url);
 });
 // Open media item when it's clicked
-$('.tweet .tweet-content-container .media-item').click(function() {
-  let img = $(this).css('background-image').replace('url("', '').replace('")', '');
+$('.tweet .tweet-content-container .media-item, #main #messages .messages-widget .message-container .media-message .media-item').click(function() {
+  let img = $(this).attr('src') || $(this).css('background-image').replace('url("', '').replace('")', '');
   $(`
     <section class="media-item-modal-overlay overlay">
       <section class="media-item-modal modal">
@@ -114,34 +114,41 @@ $('.tweet .tweet-actions .more-btn .icon').click(function() {
 let messageContainer = $('#main #messages .messages-widget .message-container');
 // Fix message margin-right to compensate scrollBar
 function getBrowserScrollSize() {
-
-    var css = {
-        "border":  "none",
-        "height":  "200px",
-        "margin":  "0",
-        "padding": "0",
-        "width":   "200px"
-    };
-
-    var inner = $("<div>").css($.extend({}, css));
-    var outer = $("<div>").css($.extend({
-        "left":       "-1000px",
-        "overflow":   "scroll",
-        "position":   "absolute",
-        "top":        "-1000px"
-    }, css)).append(inner).appendTo("body")
-    .scrollLeft(1000)
-    .scrollTop(1000);
-
-    var scrollSize = {
-        "height": (outer.offset().top - inner.offset().top) || 0,
-        "width": (outer.offset().left - inner.offset().left) || 0
-    };
-
-    outer.remove();
-    return scrollSize;
+  var css = {
+      "border":  "none",
+      "height":  "200px",
+      "margin":  "0",
+      "padding": "0",
+      "width":   "200px"
+  };
+  var inner = $("<div>").css($.extend({}, css));
+  var outer = $("<div>").css($.extend({
+      "left":       "-1000px",
+      "overflow":   "scroll",
+      "position":   "absolute",
+      "top":        "-1000px"
+  }, css)).append(inner).appendTo("body")
+  .scrollLeft(1000)
+  .scrollTop(1000);
+  var scrollSize = {
+      "height": (outer.offset().top - inner.offset().top) || 0,
+      "width": (outer.offset().left - inner.offset().left) || 0
+  };
+  outer.remove();
+  return scrollSize;
 }
 // Set margin-right
 messageContainer.find('.your-message').css({'margin-right': -1 * getBrowserScrollSize().width + 'px'});
 // Automatically scroll down in message container so that you start at the latest message
 messageContainer.scrollTop(messageContainer.prop('scrollHeight'));
+// Open new message screen when new message button is clicked
+$('#new-message-btn').click(function() {
+  $(this).parents('#messages-widget').find('#new-message').css({'left': '0'});
+});
+// Close new message screen when back button is clicked
+$('#new-message-back-btn').click(function() {
+  $(this).parents('#messages-widget').find('#new-message').css({'left': 'calc(100% + 30px)'});
+});
+$('#main #messages #new-message .content-container .user-autofill .user-container .user').click(function() {
+  console.log($(this).data('user'));
+});
