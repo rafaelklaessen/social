@@ -335,7 +335,6 @@
             </div>
           </section>
         </article>
-        <h1><%= @username %><%= @data[:name] %></h1>
         <%= render @view_module, @view_template, assigns %>
       </section>
     </main>
@@ -368,6 +367,10 @@
         </section>
       </section>
     </section>
+    <!-- Required variable for appending media modals (URL of the close icon is unknown in the JavaScript) -->
+    <script type="text/javascript">
+      var closeBtnIconUrl = "<%= static_path(@conn, "/images/icons/close-icon.png") %>";
+    </script>
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
     <script src="<%= static_path(@conn, "/js/platform.js") %>"></script>
     <script>require('web/static/js/platform.js')</script>

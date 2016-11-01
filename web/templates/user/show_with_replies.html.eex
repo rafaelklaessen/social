@@ -1,1 +1,132 @@
-<h1>Tweets and replies by user: <%= @username %></h1>
+<article id="tweet-2" class="tweet-2 tweet" data-author="jan" data-tweetId="2">
+  <header class="tweet-author">
+    <a href="<%= user_path(@conn, :show, "jan") %>">
+      <figure class="profile-picture" style="background-image: url('<%= static_path(@conn, "/images/profile-picture.png") %>')"></figure>
+      <div class="name-container">
+        <h2 class="name">kees</h2>
+        <h2 class="username">@jan</h2>
+      </div>
+      <div class="timestamp-container">
+        <time class="timestamp">Sep 17 15:04</time>
+      </div>
+    </a>
+  </header>
+  <section class="tweet-content-container">
+    Vandaag weer kaas gemaakt x) Kees is cool :D Vandaag weer kaas gemaakt x) Kees is cool :D
+  </section>
+  <footer class="tweet-actions">
+    <ul class="tweet-action-container">
+      <li class="view-tweet-btn btn tweet-action">
+        <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="View Tweet icon" title="View"></span>
+      </li>
+      <li class="reply-btn btn tweet-action">
+        <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Reply icon" title="Reply"></span>
+      </li>
+      <li class="retweet-btn btn tweet-action">
+        <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Retweet icon" title="Retweet"></span>
+        <span class="retweet-count action-count">959K</span>          
+      </li>
+      <li class="like-btn btn tweet-action">
+        <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Like icon" title="Like"></span>
+        <span class="like-count action-count">16</span>
+      </li>
+      <li class="more-btn btn tweet-action">
+        <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="More" title="More"></span>
+        <ul class="more-dropdown">
+          <li class="delete-tweet more-dropdown-item">Copy link to Tweet</li>          
+          <li class="delete-tweet more-dropdown-item">Delete Tweet</li>
+        </ul>
+      </li>
+    </ul>
+  </footer>
+</article>
+<article id="tweet-2" class="tweet-2 tweet" data-author="jan" data-tweetId="2">
+  <header class="tweet-author">
+    <a href="<%= user_path(@conn, :show, "jan") %>">
+      <figure class="profile-picture" style="background-image: url('<%= static_path(@conn, "/images/profile-picture.png") %>')"></figure>
+      <div class="name-container">
+        <h2 class="name">kees</h2>
+        <h2 class="username">@jan</h2>
+      </div>
+      <div class="timestamp-container">
+        <time class="timestamp">Sep 17 15:04</time>
+      </div>
+    </a>
+  </header>
+  <section class="tweet-content-container">
+    Vandaag weer kaas gemaakt x) Kees is cool :D Vandaag weer <a href="http://www.kaas.nu" target="_blank">kaas</a> gemaakt x) Kees is cool :D
+    <figure class="media-item" style="background-image: url('<%= static_path(@conn, "/images/media/car.jpg") %>')"></figure>
+  </section>
+  <footer class="tweet-actions">
+    <ul class="tweet-action-container">
+      <li class="view-tweet-btn btn tweet-action">
+        <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="View Tweet icon" title="View"></span>
+      </li>
+      <li class="reply-btn btn tweet-action">
+        <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Reply icon" title="Reply"></span>
+      </li>
+      <li class="retweet-btn btn tweet-action">
+        <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Retweet icon" title="Retweet"></span>
+        <span class="retweet-count action-count">959K</span>          
+      </li>
+      <li class="like-btn btn tweet-action">
+        <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Like icon" title="Like"></span>
+        <span class="like-count action-count">16</span>
+      </li>
+      <li class="more-btn btn tweet-action">
+        <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="More" title="More"></span>
+        <ul class="more-dropdown">
+          <li class="delete-tweet more-dropdown-item">Copy link to Tweet</li>          
+          <li class="delete-tweet more-dropdown-item">Delete Tweet</li>
+        </ul>
+      </li>
+    </ul>
+  </footer>
+</article>
+<article id="tweet-2" class="tweet-2 tweet" data-author="jan" data-tweetId="2">
+  <header class="tweet-author">
+    <a href="<%= user_path(@conn, :show, "jan") %>">
+      <figure class="profile-picture" style="background-image: url('<%= static_path(@conn, "/images/profile-picture.png") %>')"></figure>
+      <div class="name-container">
+        <h2 class="name">kees</h2>
+        <h2 class="username">@jan</h2>
+      </div>
+      <div class="timestamp-container">
+        <time class="timestamp">Sep 17 15:04</time>
+      </div>
+    </a>
+  </header>
+  <section class="tweet-content-container">
+    <a href="<%= user_path(@conn, :show, "kees") %>" class="mention" data-mentioned-username="kees">@kees</a> Vandaag weer kaas gemaakt x) Kees is cool :D Vandaag weer <a href="http://www.kaas.nu" target="_blank">kaas</a> gemaakt x) Kees is cool :D
+    <figure class="media-item" style="background-image: url('<%= static_path(@conn, "/images/media/car.jpg") %>')"></figure>
+  </section>
+  <footer class="tweet-actions">
+    <ul class="tweet-action-container">
+      <li class="view-tweet-btn btn tweet-action">
+        <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="View Tweet icon" title="View"></span>
+      </li>
+      <li class="reply-btn btn tweet-action">
+        <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Reply icon" title="Reply"></span>
+      </li>
+      <li class="retweet-btn btn tweet-action">
+        <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Retweet icon" title="Retweet"></span>
+        <span class="retweet-count action-count">959K</span>          
+      </li>
+      <li class="like-btn btn tweet-action">
+        <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Like icon" title="Like"></span>
+        <span class="like-count action-count">16</span>
+      </li>
+      <li class="more-btn btn tweet-action">
+        <span class="icon"><img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="More" title="More"></span>
+        <ul class="more-dropdown">
+          <li class="delete-tweet more-dropdown-item">Copy link to Tweet</li>          
+          <li class="delete-tweet more-dropdown-item">Delete Tweet</li>
+        </ul>
+      </li>
+    </ul>
+  </footer>
+</article>
+<h1>User: <%= @username %></h1>
+<%= for key <- Map.keys(@data) do %>
+  <p><span class="name"><%= key %>: </span><span class="content"><%= @data[key] %></span></p>
+<% end %>

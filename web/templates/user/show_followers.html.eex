@@ -1,1 +1,106 @@
-<h1>People that follow <%= @username %></h1>
+<section id="followers">
+  <section class="col">
+    <article class="profile-card follower widget" data-username="ra_ca02">
+      <a href="<%= user_path(@conn, :show, "ra_ca02") %>">
+        <header class="profile-data-top-container">
+          <figure class="banner" style="background-image: url('<%= static_path(@conn, "/images/banner.jpg") %>')"></figure>
+          <figure class="profile-picture" style="background-image: url('<%= static_path(@conn, "/images/profile-picture.png") %>')"></figure>
+          <div class="name-container">
+            <h2 class="name">Rafael K</h2>
+            <h2 class="username">@ra_ca02</h2>
+          </div>
+        </header>
+      </a>
+      <p class="profile-bio">Webdeveloper | JavaScript :D | Go := D | Learning Elixir & Phoenix</p>
+      <section class="profile-actions-container">
+        <span class="follows-you">Follows you</span>
+        <div class="follow-btn blue-btn btn">Follow</div>
+      </section>
+    </article>
+    <article class="profile-card follower widget" data-username="ra_ca02">
+      <a href="<%= user_path(@conn, :show, "ra_ca02") %>">
+        <header class="profile-data-top-container">
+          <figure class="banner" style="background-image: url('<%= static_path(@conn, "/images/banner.jpg") %>')"></figure>
+          <figure class="profile-picture" style="background-image: url('<%= static_path(@conn, "/images/profile-picture.png") %>')"></figure>
+          <div class="name-container">
+            <h2 class="name">Rafael K</h2>
+            <h2 class="username">@ra_ca02</h2>
+          </div>
+        </header>
+      </a>
+      <p class="profile-bio">Webdeveloper | JavaScript :D | Go := D | Learning Elixir & Phoenix</p>
+      <section class="profile-actions-container">
+        <div class="follow-btn blue-btn btn">Follow</div>
+      </section>
+    </article>
+    <article class="profile-card follower widget" data-username="kees">
+      <a href="<%= user_path(@conn, :show, "kees") %>">
+        <header class="profile-data-top-container">
+          <figure class="banner" style="background-image: url('<%= static_path(@conn, "/images/banner.jpg") %>')"></figure>
+          <figure class="profile-picture" style="background-image: url('<%= static_path(@conn, "/images/profile-picture2.png") %>')"></figure>
+          <div class="name-container">
+            <h2 class="name">Kees is COOL</h2>
+            <h2 class="username">@kees</h2>
+          </div>
+        </header>
+      </a>
+      <p class="profile-bio">kaas is lekker</p>
+      <section class="profile-actions-container">
+        <span class="follows-you">Follows you</span>
+        <div class="follow-btn blue-btn btn">Follow</div>
+      </section>
+    </article>
+  </section>
+  <section class="col">
+    <article class="profile-card follower widget" data-username="kees">
+      <a href="<%= user_path(@conn, :show, "kees") %>">
+        <header class="profile-data-top-container">
+          <figure class="banner" style="background-image: url('<%= static_path(@conn, "/images/banner.jpg") %>')"></figure>
+          <figure class="profile-picture" style="background-image: url('<%= static_path(@conn, "/images/profile-picture2.png") %>')"></figure>
+          <div class="name-container">
+            <h2 class="name">Kees is COOL</h2>
+            <h2 class="username">@kees</h2>
+          </div>
+        </header>
+      </a>
+      <p class="profile-bio">kaas is lekker</p>
+      <section class="profile-actions-container">
+        <div class="follow-btn blue-btn btn">Follow</div>
+      </section>
+    </article>
+    <article class="profile-card follower widget" data-username="kees">
+      <a href="<%= user_path(@conn, :show, "kees") %>">
+        <header class="profile-data-top-container">
+          <figure class="banner" style="background-image: url('<%= static_path(@conn, "/images/banner.jpg") %>')"></figure>
+          <figure class="profile-picture" style="background-image: url('<%= static_path(@conn, "/images/profile-picture2.png") %>')"></figure>
+          <div class="name-container">
+            <h2 class="name">Kees is COOL</h2>
+            <h2 class="username">@kees</h2>
+          </div>
+        </header>
+      </a>
+      <p class="profile-bio">kaas is lekker</p>
+      <section class="profile-actions-container">
+        <span class="follows-you">Follows you</span>
+        <div class="follow-btn blue-btn btn">Follow</div>
+      </section>
+    </article>
+    <article class="profile-card follower widget" data-username="ra_ca02">
+      <a href="<%= user_path(@conn, :show, "ra_ca02") %>">
+        <header class="profile-data-top-container">
+          <figure class="banner" style="background-image: url('<%= static_path(@conn, "/images/banner.jpg") %>')"></figure>
+          <figure class="profile-picture" style="background-image: url('<%= static_path(@conn, "/images/profile-picture.png") %>')"></figure>
+          <div class="name-container">
+            <h2 class="name">Rafael K</h2>
+            <h2 class="username">@ra_ca02</h2>
+          </div>
+        </header>
+      </a>
+      <p class="profile-bio">Webdeveloper | JavaScript :D | Go := D | Learning Elixir & Phoenix</p>
+      <section class="profile-actions-container">
+        <span class="follows-you">Follows you</span>
+        <div class="follow-btn blue-btn btn">Follow</div>
+      </section>
+    </article>
+  </section>
+</section>

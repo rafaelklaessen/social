@@ -9,6 +9,8 @@ $mainGreyColor: #546E7A;
 $mainGreyColorHover: #37474F;
 // Main grey color, lighter
 $mainGreyColorLight: #CFD8DC;
+// Main grey color, extra light
+$mainGreyColorExtraLight: #EBEFF2;
 // Main red color
 $mainRedColor: #D32F2F;
 // Main red color, lighter
@@ -72,7 +74,7 @@ input, textarea {
   line-height: inherit;
   font: inherit;
   color: inherit;
-  background-color: #EBEFF2;
+  background-color: $mainGreyColorExtraLight;
   border: 0;
   outline-width: 0;
 }

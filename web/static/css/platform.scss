@@ -8,6 +8,8 @@ $mainGreyColor: #546E7A;
 $mainGreyColorHover: #37474F;
 // Main grey color, lighter
 $mainGreyColorLight: #CFD8DC;
+// Main grey color, extra light
+$mainGreyColorExtraLight: #EBEFF2;
 // Main red color
 $mainRedColor: #D32F2F;
 // Main red color, lighter
@@ -995,4 +997,87 @@ $headerHeightMinusTen: 55px;
   float: left;
   margin-right: 5px;
   color: #000000;
+}
+#main #following,
+#main #followers {
+  margin-left: -20px;
+  margin-right: -20px;
+}
+#main #following .col,
+#main #followers .col {
+  float: left;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 50%;
+}
+#main .right-col .profile-card .profile-data-top-container {
+  position: relative;
+  margin: -20px;
+  margin-bottom: 0;
+  padding: 20px;
+  padding-bottom: 0;
+  width: calc(100% + 40px);
+}
+#main .right-col .profile-card .profile-data-top-container .banner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  @include background();
+}
+#main .right-col .profile-card .profile-data-top-container .profile-picture {
+  position: relative;
+  margin: 0 auto 20px auto;
+  width: 75px;
+  height: 75px;
+  border-radius: 100%;
+  z-index: 1;
+  @include background();
+}
+#main .right-col .profile-card .profile-data-top-container .name-container {
+  position: relative;
+  margin-bottom: 20px;
+  width: 100%;
+  text-align: center;
+  line-height: 1;
+  color: #FFFFFF;
+  display: inline-block;
+  z-index: 1;
+
+  * {
+    line-height: 1;
+  }
+}
+#main .right-col .profile-card .profile-data-top-container .name-container .name,
+#main .right-col .profile-card .profile-data-top-container .name-container .username {
+  display: inline-block;
+}
+#main .right-col .profile-card .profile-data-top-container .name-container .name {
+  margin-right: 10px;
+  color: inherit;
+}
+#main .right-col .profile-card .profile-data-top-container .name-container .username {
+  color: rgba(255, 255, 255, 0.7);
+}
+#main .right-col .profile-card .profile-bio {
+  margin: 0 -20px 20px -20px;
+  padding: 20px;
+  color: #000000;
+  background-color: $mainGreyColorExtraLight;
+}
+#main .right-col .profile-card .profile-actions-container {
+  position: relative;
+  width: 100%;
+  display: inline-block;
+}
+#main .right-col .profile-card .profile-actions-container .follows-you {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 5px 10px;
+  background-color: $mainGreyColorExtraLight;
+}
+#main .right-col .profile-card .profile-actions-container .follow-btn {
+  float: right;
 }

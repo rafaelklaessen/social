@@ -296,7 +296,3 @@
     </footer>
   </article>
 </section>
-<!-- Required variable for appending media modals (URL of the close icon is unknown in the JavaScript) -->
-<script type="text/javascript">
-  var closeBtnIconUrl = "<%= static_path(@conn, "/images/icons/close-icon.png") %>";
-</script>

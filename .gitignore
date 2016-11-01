@@ -23,5 +23,5 @@ erl_crash.dump
 # variables.
 /config/prod.secret.exs
 
-# Sass cache shouldn be ignored as well
+# Sass cache should be ignored as well
 /.sass-cache/

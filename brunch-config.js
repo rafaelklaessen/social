@@ -25,7 +25,8 @@ exports.config = {
     },
     stylesheets: {
       joinTo: {
-        
+        // Check back later to reimplement sass-brunch (when the bug in v3.8.0 is fixed)  
+        // Original code: https://github.com/rafaelklaessen/social/commit/a778ee870aa4d5babb417499e51632717197c839
       },
       order: {
         after: ["web/static/css/app.scss"] // concat app.scss last
