@@ -126,6 +126,7 @@ $headerHeightMinusTen: 55px;
   width: 200px;
   line-height: 1.5;
   background-color: #FFFFFF;
+  font-size: 16px;
   box-shadow: $mainBoxShadow;
   list-style: none;
   display: none;
@@ -147,10 +148,10 @@ $headerHeightMinusTen: 55px;
   display: inline-block;
 
   &:hover {
-    color: $mainColor;
+    color: $mainColorHover;
 
     .content .name {
-      color: $mainColor;
+      color: $mainColorHover;
     }
   }
 }
@@ -263,11 +264,18 @@ $headerHeightMinusTen: 55px;
   width: 100%;
   height: 100%;
   @include background();
-  z-index: -1;
+
+  &.edit {
+    cursor: pointer;
+  }
 }
 #profile-data-top .profile-data-container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   padding-top: 90px;
   text-align: center;
+  z-index: 2;
 }
 #profile-data-top .profile-data-container .profile-picture {
   margin: 0 auto 25px auto;
@@ -275,6 +283,10 @@ $headerHeightMinusTen: 55px;
   height: 150px;
   @include background();
   border-radius: 100%;
+
+  &.edit {
+    cursor: pointer;
+  }
 }
 #profile-data-top .profile-data-container .name,
 #profile-data-top .profile-data-container .username {
@@ -294,6 +306,11 @@ $headerHeightMinusTen: 55px;
   color: inherit;
   text-decoration: inherit;
 }
+#profile-data-top .profile-data-container .name .edit-input {
+  width: 383.98px;
+  background-color: rgba($mainGreyColorExtraLight, 0.3);
+  text-align: center;
+}
 #profile-data-top .profile-data-container .btn-container .btn {
   width: 175px;
 }
@@ -302,6 +319,31 @@ $headerHeightMinusTen: 55px;
 }
 #profile-data-top .profile-data-container .btn-container .tweet-to-btn {
   margin-left: 15px;
+}
+// Image upload modal
+.image-upload-modal-overlay .image-upload-modal .content-container {
+  text-align: center;
+}
+.image-upload-modal-overlay .image-upload-modal .content-container .upload-image-preview {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  display: block;
+}
+.image-upload-modal-overlay .image-upload-modal .content-container .upload-input-container {
+  float: left;
+  margin-top: 20px;
+  display: inline-block;
+}
+.image-upload-modal-overlay .image-upload-modal .content-container .upload-input-container .upload-input {
+  position: absolute;
+  top: -100000000000000px;
+  left: -100000000000000px;
+}
+.image-upload-modal-overlay .image-upload-modal .content-container .select-upload-image-btn-container {
+  float: right;
+  margin-top: 20px;
+  display: inline-block;
 }
 #user-page #main {
   left: 0;
@@ -406,6 +448,55 @@ $headerHeightMinusTen: 55px;
 #main .left-col .profile-data-widget .title-container .title .profile-data-username {
   color: $mainGreyColor;
 }
+#main .left-col .profile-data-widget .content-container input {
+  width: calc(100% - 29px);
+}
+#main .left-col .profile-data-widget .content-container textarea {
+  width: 100%;
+  height: 106px;
+}
+#main .left-col .profile-data-widget .content-container .profile-data-theme-color {
+  margin-top: 10px;
+  margin-bottom: 0 !important;
+  display: none;
+}
+#main .left-col .profile-data-widget .content-container .profile-data-theme-color .color-bar {
+  padding: 5px;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+#main .left-col .profile-data-widget .content-container .profile-data-theme-color .color-picker {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: none;
+}
+#main .left-col .profile-data-widget .content-container .profile-data-theme-color .color-picker .color-picker-item {
+  float: left;
+  width: calc(100% / 7);
+  height: 34px;
+  cursor: pointer;
+}
+#main .left-col .profile-data-widget .content-container .profile-data-theme-color .color-picker .custom-color {
+  float: left;
+  width: calc(100% / 7 * 4);
+}
+#main .left-col .profile-data-widget .content-container .profile-data-theme-color .color-picker .custom-color .hex-color-prefix {
+  float: left;
+  width: calc(100% - 145.68px);
+  height: 100%;
+  line-height: 34px;
+  vertical-align: middle;
+  text-align: center;
+  background-color: $mainGreyColorLight;
+}
+#main .left-col .profile-data-widget .content-container .profile-data-theme-color .color-picker .custom-color .hex-color-input {
+  width: 145.68px;
+  text-transform: uppercase;
+}
+#main.edit .left-col .profile-data-widget .content-container .profile-data-item {
+  margin-bottom: 5px;
+}
 #main .left-col .profile-data-widget .content-container .profile-data-bio {
   margin-bottom: 20px;
 }
@@ -419,6 +510,9 @@ $headerHeightMinusTen: 55px;
 #main .left-col .profile-data-widget .content-container .profile-data-item .icon img {
   width: auto;
   height: 100%;
+}
+#main .left-col .profile-data-widget .content-container .profile-data-birthday .birthday-select {
+  display: inline-block;
 }
 #main .left-col .followers-you-know-widget .title-container,
 #main .left-col .media-widget .title-container {
@@ -496,6 +590,7 @@ $headerHeightMinusTen: 55px;
   overflow: hidden;
 }
 #main .right-col .tweet-nav-widget .content-container {
+  position: relative;
   margin-left: -10px;
   margin-right: -10px;
   width: calc(100% + 20px);
@@ -544,6 +639,13 @@ $headerHeightMinusTen: 55px;
   height: 3px;
   background-color: $mainColor;
   @include transition(all .2s ease-in-out);
+}
+#main .right-col .tweet-nav-widget .content-container .tweet-nav-widget-edit-btn-container {
+  position: absolute;
+  top: -10px;
+  right: 0;
+  margin-right: 10px;
+  display: inline-block;
 }
 #main .right-col .tweet {
   text-align: right;
@@ -641,6 +743,7 @@ $headerHeightMinusTen: 55px;
   line-height: 1.5;
   background-color: #FFFFFF;
   box-shadow: $mainBoxShadow;
+  cursor: default;
   display: none;
 
   * {
@@ -648,7 +751,8 @@ $headerHeightMinusTen: 55px;
   }
 }
 #main .right-col .tweet .tweet-actions .tweet-action-container .tweet-action.more-btn .more-dropdown .more-dropdown-item {
-  color: $mainColor;
+  width: 100%;
+  cursor: pointer;
   @include transition(all .2s ease-in-out);
 
   &:hover {
@@ -999,12 +1103,14 @@ $headerHeightMinusTen: 55px;
   color: #000000;
 }
 #main #following,
-#main #followers {
+#main #followers,
+#main #followers-you-know {
   margin-left: -20px;
   margin-right: -20px;
 }
 #main #following .col,
-#main #followers .col {
+#main #followers .col,
+#main #followers-you-know .col {
   float: left;
   padding-left: 20px;
   padding-right: 20px;

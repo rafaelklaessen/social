@@ -25,7 +25,7 @@ defmodule Social.Router do
   scope "/users", Social do
     pipe_through :browser
 
-    resources "/", UserController
+    resources "/", UserController, except: [:edit]
     get "/:id/with_replies", UserController, :show_with_replies
     get "/:id/media", UserController, :show_media
     get "/:id/following", UserController, :show_following

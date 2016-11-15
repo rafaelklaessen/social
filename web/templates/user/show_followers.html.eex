@@ -47,7 +47,7 @@
       <p class="profile-bio">kaas is lekker</p>
       <section class="profile-actions-container">
         <span class="follows-you">Follows you</span>
-        <div class="follow-btn blue-btn btn">Follow</div>
+        <div class="follow-btn grey-btn btn">Unfollow</div>
       </section>
     </article>
   </section>
@@ -65,7 +65,7 @@
       </a>
       <p class="profile-bio">kaas is lekker</p>
       <section class="profile-actions-container">
-        <div class="follow-btn blue-btn btn">Follow</div>
+        <div class="follow-btn grey-btn btn">Unfollow</div>
       </section>
     </article>
     <article class="profile-card follower widget" data-username="kees">

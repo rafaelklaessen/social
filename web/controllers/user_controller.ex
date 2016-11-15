@@ -9,35 +9,6 @@ defmodule Social.UserController do
     redirect conn, to: "/"
   end
 
-  def edit(conn, %{"id" => username}) do
-    query = from u in User,
-            where: u.username == ^username,
-            select: u.id
-    user_id = Repo.all(query)
-    data_query = from u in User,
-                where: u.username == ^username,
-                select: %{:name => u.name, :password => u.password, :bio => u.bio, :location => u.location, :website => u.website, :birthday => u.birthday, :profile_picture => u.profile_picture, :banner => u.banner, :theme_color => u.theme_color, :settings => u.settings, :following => u.following, :followers => u.followers, :likes => u.likes, :lists => u.lists, :created_at => u.inserted_at}
-    data = Repo.all(data_query)
-    data = hd data
-    if Enum.count(user_id) == 0 || Enum.count(data) == 0 do
-      conn
-      |> put_layout(false)
-      |> put_status(:not_found)
-      |> render(Social.ErrorView, "404.html")
-    else
-      user_id = hd user_id
-      user = Repo.get!(User, user_id)
-      changeset = User.changeset(user)
-      conn
-      |> assign(:page_title, "Edit user #{username}")
-      |> assign(:username, username)
-      |> assign(:data, data)
-      |> assign(:changeset, changeset)
-      |> assign(:user, user)
-      |> render("edit.html")
-    end
-  end
-
   def new(conn, _params) do
     changeset = User.changeset(%User{})
     conn

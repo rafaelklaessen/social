@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/platform.css") %>">
   </head>
 
-  <body id="user-page" class="user-page">
+  <body id="user-page" class="user-page user-page-editable">
     <header id="header" class="header">
       <section class="container">
         <nav id="nav" class="nav">
@@ -135,12 +135,12 @@
           </header>
           <section class="content-container">
             <%= if @data[:bio] != nil do %>
-              <div id="profile-data-bio" class="profile-data-bio">
+              <div id="profile-data-bio" class="profile-data-bio" data-maxlength="160">
                 <span class="data"><%= @data[:bio] %></span>
               </div>
             <% end %>
             <%= if @data[:location] != nil do %>
-              <div id="profile-data-location" class="profile-data-location profile-data-item">
+              <div id="profile-data-location" class="profile-data-location profile-data-item" data-maxlength="30">
                 <span class="icon">
                   <img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Location icon">
                 </span>
@@ -148,7 +148,7 @@
               </div>
             <% end %>
             <%= if @data[:website] != nil do %>
-              <div id="profile-data-website" class="profile-data-website profile-data-item">
+              <div id="profile-data-website" class="profile-data-website profile-data-item" data-maxlength="100">
                 <span class="icon">
                   <img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Website icon">
                 </span>
@@ -172,6 +172,25 @@
                 <span class="data">Born on <%= @data[:birthday] %></span>
               </div>
             <% end %>
+            <div id="profile-data-theme-color" class="profile-data-theme-color profile-data-item">
+              <div id="color-bar" class="color-bar" data-color="<%= @data[:theme_color] %>" style="background-color: <%= @data[:theme_color] %>;">Theme color</div>
+              <ul id="color-picker" class="color-picker color-picker-dropdown">
+                <li class="color-picker-item" data-color="#FF691F" style="background-color: #FF691F;"></li>          
+                <li class="color-picker-item" data-color="#FAB81E" style="background-color: #FAB81E;"></li>
+                <li class="color-picker-item" data-color="#7FDBB6" style="background-color: #7FDBB6;"></li>
+                <li class="color-picker-item" data-color="#19CF86" style="background-color: #19CF86;"></li>
+                <li class="color-picker-item" data-color="#91D2FA" style="background-color: #91D2FA;"></li>
+                <li class="color-picker-item" data-color="#1B95E0" style="background-color: #1B95E0;"></li>
+                <li class="color-picker-item" data-color="#ABB8C2" style="background-color: #ABB8C2;"></li>
+                <li class="color-picker-item" data-color="#E81C4F" style="background-color: #E81C4F;"></li>
+                <li class="color-picker-item" data-color="#F58EA8" style="background-color: #F58EA8;"></li>
+                <li class="color-picker-item" data-color="#981CEB" style="background-color: #981CEB;"></li>
+                <li id="custom-color" class="custom-color">
+                  <span class="hex-color-prefix">#</span>
+                  <input class="hex-color-input input" type="text" maxlength="6" placeholder="<%= String.replace(@data[:theme_color], "#", "") %>">
+                </li>                
+              </ul>
+            </div>
             <div id="profile-data-joined" class="profile-data-joined profile-data-item">
               <span class="icon">
                 <img src="<%= static_path(@conn, "/images/icons/home-icon.png") %>" alt="Joined icon">
@@ -182,44 +201,46 @@
         </article>
         <article id="followers-you-know-widget" class="followers-you-know-widget widget">
           <header class="title-container">
-            <h1 class="title"><span id="followers-you-know-count" class="followers-you-know-count count">7</span> Followers you know</h1>
+            <a href="<%= user_path(@conn, :show_followers_you_know, @username) %>">
+              <h1 class="title"><span id="followers-you-know-count" class="followers-you-know-count count">7</span> Followers you know</h1>
+            </a>
           </header>
           <section class="content-container">
             <section class="row">
               <figure user-name="sdfsdfdsf" class="profile-picture">
-                <a href="kees" class="user-link">
+                <a href="<%= user_path(@conn, :show, "kees") %>" class="user-link">
                   <img src="<%= static_path(@conn, "/images/profile-picture.png") %>" alt="Profile picture">
                 </a>
               </figure>
               <figure user-name="sdfsdfdsf" class="profile-picture">
-                <a href="kees" class="user-link">
+                <a href="<%= user_path(@conn, :show, "kees") %>" class="user-link">
                   <img src="<%= static_path(@conn, "/images/profile-picture.png") %>" alt="Profile picture">
                 </a>
               </figure>
               <figure user-name="sdfsdfdsf" class="profile-picture">
-                <a href="kees" class="user-link">
+                <a href="<%= user_path(@conn, :show, "kees") %>" class="user-link">
                   <img src="<%= static_path(@conn, "/images/profile-picture.png") %>" alt="Profile picture">
                 </a>
               </figure>
               <figure user-name="sdfsdfdsf" class="profile-picture">
-                <a href="kees" class="user-link">
+                <a href="<%= user_path(@conn, :show, "kees") %>" class="user-link">
                   <img src="<%= static_path(@conn, "/images/profile-picture.png") %>" alt="Profile picture">
                 </a>
               </figure>
             </section>
             <section class="row">
               <figure user-name="sdfsdfdsf" class="profile-picture">
-                <a href="kees" class="user-link">
+                <a href="<%= user_path(@conn, :show, "kees") %>" class="user-link">
                   <img src="<%= static_path(@conn, "/images/profile-picture.png") %>" alt="Profile picture">
                 </a>
               </figure>
               <figure user-name="sdfsdfdsf" class="profile-picture">
-                <a href="kees" class="user-link">
+                <a href="<%= user_path(@conn, :show, "kees") %>" class="user-link">
                   <img src="<%= static_path(@conn, "/images/profile-picture.png") %>" alt="Profile picture">
                 </a>
               </figure>
               <figure user-name="sdfsdfdsf" class="profile-picture">
-                <a href="kees" class="user-link">
+                <a href="<%= user_path(@conn, :show, "kees") %>" class="user-link">
                   <img src="<%= static_path(@conn, "/images/profile-picture.png") %>" alt="Profile picture">
                 </a>
               </figure>
@@ -333,6 +354,9 @@
               </a>
               <div class="bottom-line"></div>
             </div>
+            <div class="tweet-nav-widget-edit-btn-container">
+              <div id="tweet-nav-widget-edit-btn" class="tweet-nav-widget-edit-btn blue-btn btn">Edit profile</div>
+            </div> 
           </section>
         </article>
         <%= render @view_module, @view_template, assigns %>
