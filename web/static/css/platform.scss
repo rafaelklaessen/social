@@ -464,6 +464,7 @@ $headerHeightMinusTen: 55px;
   padding: 5px;
   color: #FFFFFF;
   cursor: pointer;
+  @include transition(all .2s ease-in-out);
 }
 #main .left-col .profile-data-widget .content-container .profile-data-theme-color .color-picker {
   margin: 0;

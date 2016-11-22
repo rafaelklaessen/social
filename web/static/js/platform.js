@@ -232,7 +232,7 @@ function setEditMode() {
     }
   });
   profileDataWidgetContent.find('.profile-data-theme-color').show().find('.color-bar').click(function() {
-    $(this).siblings('.color-picker').stop().slideToggle(400);
+    $(this).siblings('.color-picker').stop().slideToggle(200);
   });
   profileDataWidgetContent.find('.profile-data-theme-color').find('.color-picker .color-picker-item').click(function() {
     let newColor = $(this).data('color');
